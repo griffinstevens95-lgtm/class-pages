@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<title>Eighth-Grade History (2026-2027): Class Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #17395c; --navy-dark: #102a45; --navy-tint: #eaf0f6;
+    --gold: #c9a227; --gold-soft: #f0e2b6;
+    --ink: #232a31; --muted: #5f6b77; --rule: #d9e0e7; --bg: #f4f6f9;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+    color: var(--ink); background: var(--bg); line-height: 1.55; font-size: 17px; }
+  .wrap { max-width: 700px; margin: 0 auto; padding: 0 14px 40px; }
+  header.site { background: #fff; border-bottom: 3px solid var(--navy); padding: 20px 14px 16px; }
+  .masthead { max-width: 700px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
+  .masthead img { width: 74px; height: 74px; flex-shrink: 0; }
+  .masthead h1 { margin: 0; font-size: 1.55rem; line-height: 1.2; color: var(--navy); font-weight: 700; }
+  .masthead .sub { margin: 3px 0 0; color: var(--muted); font-size: 1.02rem; }
+  .masthead .updated { margin: 4px 0 0; color: var(--muted); font-size: .88rem; font-style: italic; }
+  nav.units { background: var(--navy); position: sticky; top: 0; z-index: 5; }
+  nav.units .row { max-width: 700px; margin: 0 auto; display: flex; overflow-x: auto; }
+  nav.units button { font-family: inherit; appearance: none; border: none; background: none;
+    color: #cfdae6; font-size: .98rem; font-weight: 600; padding: 11px 16px 9px;
+    cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; }
+  nav.units button:hover { color: #fff; }
+  nav.units button.active { color: #fff; border-bottom-color: var(--gold); background: rgba(255,255,255,.08); }
+  nav.units .latest { margin-left: auto; align-self: center; flex-shrink: 0; background: var(--gold);
+    color: var(--navy-dark); border-radius: 999px; padding: 3px 12px; margin-right: 8px;
+    font-size: .85rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+  nav.units .latest:hover { background: var(--gold-soft); }
+  .badge { display: inline-block; vertical-align: 3px; background: var(--gold); color: var(--navy-dark);
+    border-radius: 999px; padding: 1px 10px; margin-left: 8px; font-size: .72rem; font-weight: 700; letter-spacing: .3px; }
+  section.unit { display: none; }
+  section.unit.active { display: block; }
+  .unit-head { margin: 22px 0 16px; }
+  .unit-head h2 { margin: 0 0 8px; color: var(--navy); font-size: 1.35rem; }
+  .weeks { border: 1px solid var(--rule); border-radius: 8px; background: #fff; overflow: hidden; }
+  .weekrow { display: flex; align-items: baseline; gap: 10px; padding: 8px 12px; }
+  .weekrow + .weekrow { border-top: 1px solid var(--rule); }
+  .weekrow .wk { font-weight: 700; color: var(--navy); white-space: nowrap; font-size: .95rem; }
+  .weekrow .wk .range { font-weight: 400; color: var(--muted); }
+  .weekrow.current { background: #fbf6e7; box-shadow: inset 3px 0 0 var(--gold); }
+  .weekrow.current .wk::after { content: " — this week"; font-weight: 400; color: var(--muted); font-size: .85rem; }
+  .weekrow .days { display: flex; flex-wrap: wrap; gap: 6px; }
+  .weekrow .days a { text-decoration: none; color: var(--navy); background: var(--navy-tint);
+    border: 1px solid var(--rule); border-radius: 999px; padding: 1px 11px; font-size: .9rem; }
+  .weekrow .days a:hover { background: var(--gold-soft); border-color: var(--gold); }
+  .weekrow .days .noclass { color: #9aa5b0; background: transparent; border: 1px dashed var(--rule);
+    border-radius: 999px; padding: 1px 11px; font-size: .9rem; font-style: italic; }
+  article.day { background: #fff; border: 1px solid var(--rule); border-radius: 10px;
+    padding: 20px 20px 14px; margin-bottom: 22px; box-shadow: 0 1px 2px rgba(20,35,55,.06); }
+  article.day h3 { margin: 0 0 4px; font-size: 1.18rem; color: var(--navy); }
+  article.day .wk-tag { font-size: .88rem; color: var(--muted); margin: 0 0 12px; }
+  figure { margin: 0 0 10px; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--rule);
+    border-radius: 6px; cursor: zoom-in; }
+  figcaption { font-size: .85rem; color: var(--muted); margin-top: 4px; }
+  details.dd { border: 1px solid var(--rule); border-radius: 8px; margin: 10px 0 0; background: #fdfdfb; }
+  details.dd summary { cursor: pointer; user-select: none; padding: 9px 14px; font-weight: 700;
+    color: var(--navy); font-size: .98rem; list-style-position: inside; }
+  details.dd[open] summary { border-bottom: 1px dashed var(--rule); }
+  details.dd .body { padding: 10px 16px 12px; }
+  details.dd .body p { margin: 0 0 10px; }
+  details.dd .body ul { margin: 0; padding-left: 22px; }
+  details.dd .body li { margin-bottom: 6px; }
+  details.hw summary { color: #7a5c00; }
+  details.hw summary .due { font-weight: 400; color: #8a6d1a; font-style: italic; }
+  details.hw { background: #fdf6e3; border-color: #e6d9a8; }
+  .empty { text-align: center; color: var(--muted); font-style: italic; padding: 40px 0; }
+  .about { text-align: center; color: var(--muted); font-size: .85rem; padding: 6px 20px 30px; }
+  .lightbox { display: none; position: fixed; inset: 0; z-index: 50; background: rgba(10,18,28,.92);
+    cursor: zoom-out; align-items: center; justify-content: center; padding: 18px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 100%; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="masthead">
+    <img src="../assets/academy-seal-navy.png" alt="The Academy seal">
+    <div>
+      <h1>Eighth-Grade History (2026-2027): Class Notes</h1>
+      <p class="sub">Mr. Stevens</p>
+      <p class="updated">Updated Wednesday 8/19</p>
+    </div>
+  </div>
+</header>
+
+<nav class="units" hidden>
+  <div class="row">
+<!-- UNIT_TABS -->
+    <a class="latest" href="#" hidden>Latest class &darr;</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<!-- UNITS -->
+  <p class="empty" id="prelaunch">Nothing here yet &mdash; notes appear after each class. Check back soon!</p>
+</div>
+
+<p class="about">This page is the running record of our class &mdash; the board, a short summary, and homework from every class day, posted by Mr. Stevens.</p>
+
+<div class="lightbox" id="lightbox"><img src="" alt=""></div>
+<script>
+  const tabs = document.querySelectorAll("nav.units button");
+  const units = document.querySelectorAll("section.unit");
+  tabs.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tabs.forEach(b => b.classList.remove("active"));
+      units.forEach(u => u.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.unit).classList.add("active");
+      window.scrollTo({ top: 0 });
+    });
+  });
+  function openHash(hash) {
+    const target = document.querySelector(hash);
+    if (!target) return;
+    const unit = target.closest("section.unit");
+    if (unit) {
+      tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === unit.id));
+      units.forEach(u => u.classList.toggle("active", u === unit));
+      target.scrollIntoView();
+    }
+  }
+  if (location.hash) openHash(location.hash);
+  document.querySelectorAll('a[href^="#d"]').forEach(a => {
+    a.addEventListener("click", e => {
+      e.preventDefault();
+      history.replaceState(null, "", a.getAttribute("href"));
+      openHash(a.getAttribute("href"));
+    });
+  });
+  const lb = document.getElementById("lightbox");
+  const lbimg = lb.querySelector("img");
+  document.querySelectorAll("figure img").forEach(img => {
+    img.addEventListener("click", () => { lbimg.src = img.src; lb.classList.add("open"); });
+  });
+  lb.addEventListener("click", () => lb.classList.remove("open"));
+</script>
+
+</body>
+</html>
