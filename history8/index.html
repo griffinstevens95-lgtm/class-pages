@@ -92,8 +92,8 @@
 <nav class="units">
   <div class="row">
 <!-- UNIT_TABS -->
-    <button data-unit="uw">Welcome</button>
-    <button data-unit="u01" class="active">01 &middot; Exploration</button>
+    <button data-unit="uw" class="active">Welcome</button>
+    <button data-unit="u01">01 &middot; Exploration</button>
     <button data-unit="u02">02 &middot; Reformation</button>
     <button data-unit="u03">03 &middot; Enlightenment</button>
     <button data-unit="u04">04 &middot; French Revolution</button>
@@ -101,7 +101,7 @@
   </div>
 </nav>
 
-<header class="site">
+<header class="site" style="display:none">
   <div class="masthead">
     <img src="../assets/academy-seal-navy.png" alt="The Academy seal">
     <div>
@@ -114,15 +114,26 @@
 
 <div class="wrap">
 <!-- UNITS -->
-  <section class="unit" id="uw">
+  <section class="unit active" id="uw">
     <div class="hero">
       <img class="seal" src="../assets/academy-seal-navy.png" alt="The Academy seal">
       <h2>Welcome to Eighth-Grade History!</h2>
       <p>This is our class homepage. Please check here for homework assignments, grades, and class materials. Here&rsquo;s to a great year of history!</p>
-<!-- WELCOME_IMAGES -->
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/De_terugkomst_in_Amsterdam_van_de_tweede_expeditie_naar_Oost-Indi%C3%AB%2C_Hendrik_Cornelisz_Vroom%2C_1599%2C_Rijksmuseum_SK-A-2858.jpg/1280px-De_terugkomst_in_Amsterdam_van_de_tweede_expeditie_naar_Oost-Indi%C3%AB%2C_Hendrik_Cornelisz_Vroom%2C_1599%2C_Rijksmuseum_SK-A-2858.jpg" alt="Vroom, Return of the Second East Indies Expedition to Amsterdam (1599)">
+        <figcaption>Vroom, Return of the Second East Indies Expedition to Amsterdam (1599)</figcaption>
+      </figure>
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/An_Experiment_on_a_Bird_in_an_Air_Pump_by_Joseph_Wright_of_Derby%2C_1768.jpg/1280px-An_Experiment_on_a_Bird_in_an_Air_Pump_by_Joseph_Wright_of_Derby%2C_1768.jpg" alt="Wright of Derby, An Experiment on a Bird in the Air Pump (1768)">
+        <figcaption>Wright of Derby, An Experiment on a Bird in the Air Pump (1768)</figcaption>
+      </figure>
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Prise_de_la_Bastille.jpg/1280px-Prise_de_la_Bastille.jpg" alt="Hoël, Storming of the Bastille (1789)">
+        <figcaption>Hoël, Storming of the Bastille (1789)</figcaption>
+      </figure>
     </div>
   </section>
-  <section class="unit active" id="u01">
+  <section class="unit" id="u01">
     <div class="unit-head">
       <h2>Unit 01: Exploration</h2>
       <div class="weeks">
@@ -141,7 +152,7 @@
         <figcaption>Tap to enlarge</figcaption>
       </figure>
 
-      <details class="dd" open>
+      <details class="dd">
         <summary>Summary Of Class</summary>
         <div class="body">
           <ul>
