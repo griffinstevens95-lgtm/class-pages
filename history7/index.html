@@ -75,6 +75,11 @@
   details.hw { background: #fdf6e3; border-color: #e6d9a8; }
   .empty { text-align: center; color: var(--muted); font-style: italic; padding: 40px 0; }
   .about { text-align: center; color: var(--muted); font-size: .85rem; padding: 6px 20px 30px; }
+  .hero { text-align: center; padding: 34px 12px 8px; }
+  .hero img.seal { width: 130px; height: 130px; margin-bottom: 14px; }
+  .hero h2 { color: var(--navy); font-size: 1.9rem; margin: 0 0 12px; line-height: 1.2; }
+  .hero > p { max-width: 540px; margin: 0 auto 22px; font-size: 1.08rem; }
+  .hero figure { margin: 0 0 18px; }
   .lightbox { display: none; position: fixed; inset: 0; z-index: 50; background: rgba(10,18,28,.92);
     cursor: zoom-out; align-items: center; justify-content: center; padding: 18px; }
   .lightbox.open { display: flex; }
@@ -83,16 +88,6 @@
 </head>
 <body>
 
-<header class="site">
-  <div class="masthead">
-    <img src="../assets/academy-seal-navy.png" alt="The Academy seal">
-    <div>
-      <h1>Seventh-Grade History (2026-2027): Class Notes</h1>
-      <p class="sub">Mr. Stevens</p>
-      <p class="updated">Updated Wednesday, 8/19/26</p>
-    </div>
-  </div>
-</header>
 
 <nav class="units">
   <div class="row">
@@ -105,14 +100,26 @@
   </div>
 </nav>
 
+<header class="site">
+  <div class="masthead">
+    <img src="../assets/academy-seal-navy.png" alt="The Academy seal">
+    <div>
+      <h1>Seventh-Grade History (2026-2027): Class Notes</h1>
+      <p class="sub">Mr. Stevens</p>
+      <p class="updated">Updated Wednesday, 8/19/26</p>
+    </div>
+  </div>
+</header>
+
 <div class="wrap">
 <!-- UNITS -->
   <section class="unit" id="uw">
-    <div class="unit-head">
-      <h2>Welcome!</h2>
-    </div>
-    <p>Welcome to Seventh-Grade History Class! This is our class homepage. Please check here for homework assignments, grades, and class materials. Here&rsquo;s to a great year of history!</p>
+    <div class="hero">
+      <img class="seal" src="../assets/academy-seal-navy.png" alt="The Academy seal">
+      <h2>Welcome to Seventh-Grade History!</h2>
+      <p>This is our class homepage. Please check here for homework assignments, grades, and class materials. Here&rsquo;s to a great year of history!</p>
 <!-- WELCOME_IMAGES -->
+    </div>
   </section>
   <section class="unit active" id="u01">
     <div class="unit-head">
@@ -191,6 +198,7 @@
       units.forEach(u => u.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.unit).classList.add("active");
+      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw") ? "none" : "";
       window.scrollTo({ top: 0 });
     });
   });
@@ -201,6 +209,7 @@
     if (unit) {
       tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === unit.id));
       units.forEach(u => u.classList.toggle("active", u === unit));
+      document.querySelector("header.site").style.display = (unit.id === "uw") ? "none" : "";
       target.scrollIntoView();
     }
   }
