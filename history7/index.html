@@ -538,7 +538,7 @@
       units.forEach(u => u.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.unit).classList.add("active");
-      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw") ? "none" : "";
+      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "ucrew") ? "none" : "";
       window.scrollTo({ top: 0 });
     });
   });
@@ -549,7 +549,7 @@
     if (unit) {
       tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === unit.id));
       units.forEach(u => u.classList.toggle("active", u === unit));
-      document.querySelector("header.site").style.display = (unit.id === "uw") ? "none" : "";
+      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "ucrew") ? "none" : "";
       target.scrollIntoView();
     }
   }
