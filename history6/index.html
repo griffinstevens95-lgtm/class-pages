@@ -54,6 +54,23 @@
   .weekrow .days a:hover { background: var(--gold-soft); border-color: var(--gold); }
   .weekrow .days .noclass { color: #9aa5b0; background: transparent; border: 1px dashed var(--rule);
     border-radius: 999px; padding: 1px 11px; font-size: .9rem; font-style: italic; }
+  .crewhead { margin: 36px 0 20px; }
+  .crewhead .courseline { margin: 0 0 26px; line-height: 1.55; }
+  .crewhead h2 { margin: 0; text-align: center; font-size: 1.1rem; font-weight: 400; color: var(--ink); }
+  .crewlead { font-weight: 700; text-decoration: underline; color: #1155cc; }
+  .crewhr { border: none; border-top: 1px solid var(--rule); margin: 24px 0; }
+  #ucrew p { margin: 20px 0; }
+  .crewtable { border: 1px solid var(--rule); background: #fff; margin-top: 20px; }
+  .crewrow { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 16px; }
+  .crewrow + .crewrow { border-top: 1px solid var(--rule); }
+  .crewrow:nth-child(even) { background: var(--navy-tint); }
+  .crewrow .cwk { font-weight: 700; color: var(--ink); white-space: nowrap; font-size: .92rem; }
+  .crewrow .cwk .range { font-weight: 400; color: var(--ink); }
+  .crewrow .cnames { text-align: right; font-size: 1rem; color: var(--ink); }
+  .crewrow.current .cwk::before { content: "\27A4"; color: #1155cc; margin-right: 7px; }
+  .crewrow.current .cwk::after { content: " (this week!)"; font-weight: 700; font-style: italic; font-size: .85rem; color: #1155cc; }
+  .cnames .tbd { font-style: italic; font-size: .93rem; }
+  .crew-note { font-size: .9rem; margin: 20px 2px 0; }
   article.day { background: #fff; border: 1px solid var(--rule); border-radius: 10px;
     padding: 20px 20px 14px; margin-bottom: 22px; box-shadow: 0 1px 2px rgba(20,35,55,.06); }
   article.day h3 { margin: 0 0 4px; font-size: 1.18rem; color: var(--navy); }
@@ -97,6 +114,7 @@
     <button data-unit="u02">02 &middot; Ancient Egypt</button>
     <button data-unit="u03">03 &middot; Ancient Mesopotamia</button>
     <button data-unit="u04">04 &middot; Ancient Israelites</button>
+    <button data-unit="ucrew">Room Crew</button>
     <a class="latest" href="#d2026-08-28">Latest class &darr;</a>
   </div>
 </nav>
@@ -107,7 +125,7 @@
     <div>
       <h1>Sixth-Grade History (2026-2027): Class Notes</h1>
       <p class="sub">Mr. Stevens</p>
-      <p class="updated">Updated Friday, 8/28/26</p>
+      <p class="updated">Updated Sunday, 8/30/26</p>
     </div>
   </div>
 </header>
@@ -421,6 +439,50 @@
     </div>
     <p class="empty">Unit not started yet!</p>
   </section>
+  <section class="unit" id="ucrew">
+    <div class="crewhead">
+      <p class="courseline">History 6<br>Mr. Stevens</p>
+      <h2>Humanities Room Crew Schedule Round 1 (History 6, 26-27)</h2>
+    </div>
+    <p><span class="crewlead">Overview</span>: Each week, two students from each US class are the Humanities Room Crew! When it&rsquo;s your week, you two run the room checklist. You&rsquo;re also on computer cart duty: any day we use the H-room computers in English or history class, you pass them out and collect them.</p>
+    <hr class="crewhr">
+    <p><span class="crewlead">The Schedule</span>: The schedule below shows which week is your turn. If you&rsquo;re absent for most / all of that week, you&rsquo;ll pick it up when you&rsquo;re back (Mr. Stevens will keep the sheet updated).</p>
+    <div class="crewtable">
+        <div class="crewrow current">
+          <span class="cwk">Week 3 <span class="range">&middot; 8/31/26 &ndash; 9/4/26</span></span>
+          <span class="cnames">Max &amp; Eliza</span>
+        </div>
+        <div class="crewrow">
+          <span class="cwk">Week 4 <span class="range">&middot; 9/7/26 &ndash; 9/11/26</span></span>
+          <span class="cnames">Tova &amp; Maeve</span>
+        </div>
+        <div class="crewrow">
+          <span class="cwk">Week 5 <span class="range">&middot; 9/14/26 &ndash; 9/18/26</span></span>
+          <span class="cnames">Vera &amp; Nova</span>
+        </div>
+        <div class="crewrow">
+          <span class="cwk">Week 6 <span class="range">&middot; 9/21/26 &ndash; 9/25/26</span></span>
+          <span class="cnames">Danica &amp; Vala</span>
+        </div>
+        <div class="crewrow">
+          <span class="cwk">Week 7 <span class="range">&middot; 9/28/26 &ndash; 10/2/26</span></span>
+          <span class="cnames">Gordon &amp; Taj</span>
+        </div>
+        <div class="crewrow">
+          <span class="cwk">Week 8 <span class="range">&middot; 10/5/26 &ndash; 10/9/26</span></span>
+          <span class="cnames">Lina &amp; Bodhi</span>
+        </div>
+        <div class="crewrow">
+          <span class="cwk">Week 9 <span class="range">&middot; 10/12/26 &ndash; 10/16/26</span></span>
+          <span class="cnames">Leikh &amp; Sylvie</span>
+        </div>
+        <div class="crewrow">
+          <span class="cwk">Week 10 <span class="range">&middot; 10/19/26 &ndash; 10/23/26</span></span>
+          <span class="cnames">Amar <span class="tbd">&amp; a partner from the next shuffle</span></span>
+        </div>
+      </div>
+    <p class="crew-note">Once everyone&rsquo;s had a turn, we shuffle and start a new round. If a week gets skipped (break, field trip, etc.), everything slides down a week.</p>
+  </section>
 
 </div>
 
@@ -464,6 +526,14 @@
     img.addEventListener("click", () => { lbimg.src = img.src; lb.classList.add("open"); });
   });
   lb.addEventListener("click", () => lb.classList.remove("open"));
+  document.querySelectorAll(".crewtable .crewrow").forEach(r => {
+    const range = r.querySelector(".range"); if (!range) return;
+    const m = range.textContent.match(/(\d+)\/(\d+)\/(\d+)/); if (!m) return;
+    const start = new Date(2000 + +m[3], +m[1] - 1, +m[2]);
+    const end = new Date(start); end.setDate(end.getDate() + 7);
+    const now = new Date();
+    r.classList.toggle("current", now >= start && now < end);
+  });
 </script>
 
 </body>
