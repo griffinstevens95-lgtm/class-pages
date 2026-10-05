@@ -71,6 +71,18 @@
   .crewrow.current .cwk::after { content: " (this week!)"; font-weight: 700; font-style: italic; font-size: .85rem; color: #1155cc; }
   .cnames .tbd { font-style: italic; font-size: .93rem; }
   .crew-note { font-size: .9rem; margin: 20px 2px 0; }
+  .cedrow { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 34px 22px; }
+  .cedrow + .cedrow { border-top: 1px solid var(--rule); }
+  .cedrow:nth-child(even) { background: var(--navy-tint); }
+  .cedrow .cgrp { font-size: 1.1rem; color: var(--ink); line-height: 1.5; }
+  .cedrow .cgrp b { display: block; font-size: 1rem; margin-bottom: 6px; text-decoration: underline; }
+  .cedrow .cdates { text-align: right; font-size: 1rem; color: var(--ink); line-height: 2.3; white-space: nowrap; }
+  .cedrow .cdates b { text-decoration: underline; }
+  #uced { width: min(900px, calc(100vw - 28px)); margin-left: 50%; transform: translateX(-50%); }
+  #uced .crewtable { margin-top: 28px; }
+  #uced .cedterm { margin: 44px 0 0; font-size: 1.05rem; font-weight: 700; text-decoration: underline; color: var(--ink); }
+  #uced .cedsoon { margin: 14px 0 0; padding: 40px 22px; border: 1px dashed var(--rule); text-align: center; color: var(--ink); font-style: italic; }
+  @media (max-width: 700px) { #uced .cedrow { padding: 26px 16px; flex-wrap: wrap; } }
   article.day { background: #fff; border: 1px solid var(--rule); border-radius: 10px;
     padding: 20px 20px 14px; margin-bottom: 22px; box-shadow: 0 1px 2px rgba(20,35,55,.06); }
   article.day h3 { margin: 0 0 4px; font-size: 1.18rem; color: var(--navy); }
@@ -112,6 +124,7 @@
 <!-- UNIT_TABS -->
     <button data-unit="uw" class="active">Welcome</button>
     <button data-unit="ucrew">Room Crew</button>
+    <button data-unit="uced">CED Groups</button>
     <button data-unit="u01">01 &middot; Exploration</button>
     <button data-unit="u02">02 &middot; Reformation</button>
     <button data-unit="u03">03 &middot; Enlightenment</button>
@@ -1277,6 +1290,34 @@
       </div>
     <p class="crew-note">Once everyone&rsquo;s had a turn, we shuffle and start a new round. If a week gets skipped (break, field trip, etc.), everything slides down a week.</p>
   </section>
+  <section class="unit" id="uced">
+    <div class="crewhead">
+      <p class="courseline">History 8<br>Mr. Stevens</p>
+      <h2>Current Events Day: Groups and Schedule (History 8, 26-27)</h2>
+    </div>
+    <p>Here are the groups and the schedule for our Current Events Day series this year! <em>* Exact dates might change!</em></p>
+    <p class="cedterm">Fall Groups</p>
+    <div class="crewtable">
+        <div class="cedrow">
+          <span class="cgrp"><b>Group 1</b>Lilia, Parsa, Amelia, Binken</span>
+          <span class="cdates"><b>Official Meeting:</b> Monday, 10/5<br><b>Midpoint Meeting:</b> Tuesday, 10/13<br><b>Presentation:</b> Tuesday, 10/20</span>
+        </div>
+        <div class="cedrow">
+          <span class="cgrp"><b>Group 2</b>Helen, Sumaiya, Simone</span>
+          <span class="cdates"><b>Official Meeting:</b> Monday, 10/19<br><b>Midpoint Meeting:</b> Tuesday, 10/27<br><b>Presentation:</b> Tuesday, 11/3</span>
+        </div>
+        <div class="cedrow">
+          <span class="cgrp"><b>Group 3</b>Esa, Maeve, Aidan, Makeda</span>
+          <span class="cdates"><b>Official Meeting:</b> Monday, 11/2<br><b>Midpoint Meeting:</b> Tuesday, 11/10<br><b>Presentation:</b> Tuesday, 11/17</span>
+        </div>
+        <div class="cedrow">
+          <span class="cgrp"><b>Group 4</b>Andrew, Odin, Leo, Nico</span>
+          <span class="cdates"><b>Official Meeting:</b> Monday, 11/30<br><b>Midpoint Meeting:</b> Tuesday, 12/8<br><b>Presentation:</b> Tuesday, 12/15</span>
+        </div>
+      </div>
+    <p class="cedterm">Spring Groups</p>
+    <p class="cedsoon">Coming in the spring!</p>
+  </section>
 
 </div>
 
@@ -1291,7 +1332,7 @@
       units.forEach(u => u.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.unit).classList.add("active");
-      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "ucrew") ? "none" : "";
+      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "ucrew" || btn.dataset.unit === "uced") ? "none" : "";
       window.scrollTo({ top: 0 });
     });
   });
@@ -1302,7 +1343,7 @@
     if (unit) {
       tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === unit.id));
       units.forEach(u => u.classList.toggle("active", u === unit));
-      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "ucrew") ? "none" : "";
+      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "ucrew" || unit.id === "uced") ? "none" : "";
       target.scrollIntoView();
     }
   }
