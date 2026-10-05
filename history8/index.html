@@ -25,7 +25,16 @@
   .masthead .sub { margin: 3px 0 0; color: var(--muted); font-size: 1.02rem; }
   .masthead .updated { margin: 4px 0 0; color: var(--muted); font-size: .88rem; font-style: italic; }
   nav.units { background: var(--navy); position: sticky; top: 0; z-index: 5; }
-  nav.units .row { max-width: 700px; margin: 0 auto; display: flex; overflow-x: auto; }
+  nav.units .row { max-width: 700px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: stretch; }
+  nav.units .unitsmenu { position: relative; display: flex; }
+  nav.units .unitsmenu > .toggle .caret { font-size: .7rem; margin-left: 5px; vertical-align: 1px; }
+  nav.units .unitsmenu .list { display: none; position: absolute; top: 100%; left: 0; min-width: 260px;
+    background: var(--navy); border-top: 3px solid var(--gold); box-shadow: 0 6px 18px rgba(0,0,0,.25); z-index: 10; }
+  nav.units .unitsmenu.open .list { display: block; }
+  nav.units .unitsmenu .list button { display: block; width: 100%; text-align: left; border-bottom: none;
+    border-left: 3px solid transparent; padding: 10px 16px; }
+  nav.units .unitsmenu .list button .range { font-weight: 400; font-size: .85rem; color: #aebdcc; margin-left: 6px; }
+  nav.units .unitsmenu .list button.active { border-left-color: var(--gold); border-bottom-color: transparent; }
   nav.units button { font-family: inherit; appearance: none; border: none; background: none;
     color: #cfdae6; font-size: .98rem; font-weight: 600; padding: 11px 16px 9px;
     cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; }
@@ -125,10 +134,15 @@
     <button data-unit="uw" class="active">Welcome</button>
     <button data-unit="ucrew">Room Crew</button>
     <button data-unit="uced">CED Groups</button>
-    <button data-unit="u01">01 &middot; Exploration</button>
-    <button data-unit="u02">02 &middot; Reformation</button>
-    <button data-unit="u03">03 &middot; Enlightenment</button>
-    <button data-unit="u04">04 &middot; French Revolution</button>
+    <div class="unitsmenu">
+      <button class="toggle" type="button" aria-haspopup="true" aria-expanded="false"><span class="lbl">Daily Class Notes</span><span class="caret">&#9662;</span></button>
+      <div class="list">
+      <button data-unit="u01">01 &middot; Exploration</button>
+      <button data-unit="u02">02 &middot; Reformation</button>
+      <button data-unit="u03">03 &middot; Enlightenment</button>
+      <button data-unit="u04">04 &middot; French Revolution</button>
+      </div>
+    </div>
     <a class="latest" href="#d2026-09-30">Latest class &darr;</a>
   </div>
 </nav>
@@ -1324,7 +1338,40 @@
 
 <div class="lightbox" id="lightbox"><img src="" alt=""></div>
 <script>
-  const tabs = document.querySelectorAll("nav.units button");
+  const tabs = document.querySelectorAll("nav.units button[data-unit]");
+  const umenu = document.querySelector("nav.units .unitsmenu");
+  const utoggle = umenu.querySelector(".toggle");
+  function syncUnitsToggle() {
+    const cur = umenu.querySelector(".list button.active");
+    utoggle.classList.toggle("active", !!cur);
+    utoggle.querySelector(".lbl").textContent = cur ? "Daily Class Notes \u00b7 " + cur.dataset.unit.slice(1) : "Daily Class Notes";
+    umenu.classList.remove("open");
+    utoggle.setAttribute("aria-expanded", "false");
+  }
+  (function addUnitRanges() {
+    const fmt = s => { const [y, m, d] = s.split("-"); return (+m) + "/" + (+d) + "/" + y.slice(2); };
+    const info = [];
+    umenu.querySelectorAll(".list button").forEach(btn => {
+      const sec = document.getElementById(btn.dataset.unit);
+      const days = sec ? [...sec.querySelectorAll("[id^='d']")].map(e => e.id.slice(1)).filter(x => /^\d{4}-\d\d-\d\d$/.test(x)).sort() : [];
+      if (days.length) info.push({ btn, first: days[0], last: days[days.length - 1] });
+    });
+    if (!info.length) return;
+    const newest = info.reduce((a, b) => (b.last > a.last ? b : a));
+    info.forEach(u => {
+      const span = document.createElement("span");
+      span.className = "range";
+      span.textContent = "(" + fmt(u.first) + " \u2013 " + (u === newest ? "present" : fmt(u.last)) + ")";
+      u.btn.appendChild(span);
+    });
+  })();
+  utoggle.addEventListener("click", e => {
+    e.stopPropagation();
+    const open = umenu.classList.toggle("open");
+    utoggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.addEventListener("click", e => { if (!umenu.contains(e.target)) { umenu.classList.remove("open"); utoggle.setAttribute("aria-expanded", "false"); } });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") { umenu.classList.remove("open"); utoggle.setAttribute("aria-expanded", "false"); } });
   const units = document.querySelectorAll("section.unit");
   tabs.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -1333,6 +1380,7 @@
       btn.classList.add("active");
       document.getElementById(btn.dataset.unit).classList.add("active");
       document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "ucrew" || btn.dataset.unit === "uced") ? "none" : "";
+      syncUnitsToggle();
       window.scrollTo({ top: 0 });
     });
   });
@@ -1344,6 +1392,7 @@
       tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === unit.id));
       units.forEach(u => u.classList.toggle("active", u === unit));
       document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "ucrew" || unit.id === "uced") ? "none" : "";
+      syncUnitsToggle();
       target.scrollIntoView();
     }
   }
