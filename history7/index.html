@@ -102,6 +102,18 @@
     cursor: zoom-out; align-items: center; justify-content: center; padding: 18px; }
   .lightbox.open { display: flex; }
   .lightbox img { max-width: 100%; max-height: 100%; border-radius: 4px; }
+  .cedrow { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 34px 22px; }
+  .cedrow + .cedrow { border-top: 1px solid var(--rule); }
+  .cedrow:nth-child(even) { background: var(--navy-tint); }
+  .cedrow .cgrp { font-size: 1.1rem; color: var(--ink); line-height: 1.5; }
+  .cedrow .cgrp b { display: block; font-size: 1rem; margin-bottom: 6px; text-decoration: underline; }
+  .cedrow .cdates { text-align: right; font-size: 1rem; color: var(--ink); line-height: 2.3; white-space: nowrap; }
+  .cedrow .cdates b { text-decoration: underline; }
+  #uced { width: min(900px, calc(100vw - 28px)); margin-left: 50%; transform: translateX(-50%); }
+  #uced .crewtable { margin-top: 28px; }
+  #uced .cedterm { margin: 44px 0 0; font-size: 1.05rem; font-weight: 700; text-decoration: underline; color: var(--ink); }
+  #uced .cedsoon { margin: 14px 0 0; padding: 40px 22px; border: 1px dashed var(--rule); text-align: center; color: var(--ink); font-style: italic; }
+  @media (max-width: 700px) { #uced .cedrow { padding: 26px 16px; flex-wrap: wrap; } }
 </style>
 </head>
 <body>
@@ -112,6 +124,7 @@
 <!-- UNIT_TABS -->
     <button data-unit="uw" class="active">Welcome</button>
     <button data-unit="ucrew">Room Crew</button>
+    <button data-unit="uced">CED Groups</button>
     <button data-unit="u01">01 &middot; Rome</button>
     <button data-unit="u02">02 &middot; Islam</button>
     <button data-unit="u03">03 &middot; Mongols</button>
@@ -1332,6 +1345,32 @@
     <p class="crew-note">Once everyone&rsquo;s had a turn, we shuffle and start a new round. If a week gets skipped (break, field trip, etc.), everything slides down a week.</p>
   </section>
 
+  <section class="unit" id="uced">
+    <div class="crewhead">
+      <p class="courseline">History 7<br>Mr. Stevens</p>
+      <h2>Current Events Day: Groups and Schedule (History 7, 26-27)</h2>
+    </div>
+    <p>Here are the groups and the schedule for our Current Events Day series this year! <em>* Exact dates might change!</em></p>
+    <p class="cedterm">Fall Groups</p>
+    <div class="crewtable">
+        <div class="cedrow">
+          <span class="cgrp"><b>Group 1</b>Johnny, Zoe, Lucas, Vivian</span>
+          <span class="cdates"><b>Official Meeting:</b> Tuesday, 10/6<br><b>Midpoint Meeting:</b> Tuesday, 10/13<br><b>Presentation:</b> Tuesday, 10/20</span>
+        </div>
+        <div class="cedrow">
+          <span class="cgrp"><b>Group 2</b>Max, Rohan, Ezra, Juliette</span>
+          <span class="cdates"><b>Official Meeting:</b> Wednesday, 10/21<br><b>Midpoint Meeting:</b> Tuesday, 10/27<br><b>Presentation:</b> Tuesday, 11/3</span>
+        </div>
+        <div class="cedrow">
+          <span class="cgrp"><b>Group 3</b>Diana, Lara, Audrey, Arjun, Eb</span>
+          <span class="cdates"><b>Official Meeting:</b> Wednesday, 11/4<br><b>Midpoint Meeting:</b> Tuesday, 11/10<br><b>Presentation:</b> Tuesday, 11/17</span>
+        </div>
+      </div>
+    <p class="cedterm">Spring Groups</p>
+    <p class="cedsoon">Coming in the spring!</p>
+  </section>
+
+
 </div>
 
 
@@ -1345,7 +1384,7 @@
       units.forEach(u => u.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.unit).classList.add("active");
-      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "ucrew") ? "none" : "";
+      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "ucrew" || btn.dataset.unit === "uced") ? "none" : "";
       window.scrollTo({ top: 0 });
     });
   });
@@ -1356,7 +1395,7 @@
     if (unit) {
       tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === unit.id));
       units.forEach(u => u.classList.toggle("active", u === unit));
-      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "ucrew") ? "none" : "";
+      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "ucrew" || unit.id === "uced") ? "none" : "";
       target.scrollIntoView();
     }
   }
