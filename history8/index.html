@@ -123,6 +123,16 @@
     cursor: zoom-out; align-items: center; justify-content: center; padding: 18px; }
   .lightbox.open { display: flex; }
   .lightbox img { max-width: 100%; max-height: 100%; border-radius: 4px; }
+
+  /* Option F tabs (2026-10-05): pill buttons + "Click a tab!" label */
+  nav.units .row { padding: 9px 8px; gap: 8px; align-items: center; max-width: 800px; }
+  nav.units .row::before { content: "Click a tab! \2192"; color: var(--gold); font-weight: 700; font-style: italic;
+    font-size: .98rem; padding: 0 6px 0 12px; white-space: nowrap; }
+  nav.units .row > button, nav.units .unitsmenu > .toggle { border: 1.5px solid #c9a227; border-radius: 999px;
+    color: #fff; padding: 5px 16px; background: transparent; }
+  nav.units .row > button:hover, nav.units .unitsmenu > .toggle:hover { background: rgba(201,162,39,.22); }
+  nav.units .row > button.active, nav.units .unitsmenu > .toggle.active { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
+  nav.units .unitsmenu .list { top: calc(100% + 9px); }
 </style>
 </head>
 <body>
@@ -143,7 +153,7 @@
       <button data-unit="u04">04 &middot; French Revolution</button>
       </div>
     </div>
-    <a class="latest" href="#d2026-10-05">Latest class &darr;</a>
+    <a class="latest" href="#d2026-10-06">Latest class &darr;</a>
   </div>
 </nav>
 
@@ -153,7 +163,7 @@
     <div>
       <h1>Eighth-Grade History (2026-2027): Class Notes</h1>
       <p class="sub">Mr. Stevens</p>
-      <p class="updated">Updated Monday, 10/5/26</p>
+      <p class="updated">Updated Tuesday, 10/6/26</p>
     </div>
   </div>
 </header>
@@ -213,13 +223,58 @@
         </div>
         <div class="weekrow current">
           <span class="wk">Week 8 <span class="range">&middot; 10/5/26 &ndash; 10/9/26</span></span>
-          <span class="days"><a href="#d2026-10-05">Mon 10/5</a></span>
+          <span class="days"><a href="#d2026-10-05">Mon 10/5</a><a href="#d2026-10-06">Tue 10/6</a></span>
         </div>
       </div>
     </div>
 
+    <article class="day" id="d2026-10-06">
+      <h3>Tuesday, 10/6/26 <span class="badge">MOST RECENT CLASS</span></h3>
+
+      <figure>
+        <img src="images/2026-10-06-board1.jpg" alt="Whiteboard from Tuesday 10/6 &ndash; reflection paragraphs, the end of Townsend, and an impromptu debate" loading="lazy" class="zoomable">
+        <figcaption>Tap to enlarge</figcaption>
+      </figure>
+      <figure>
+        <img src="images/2026-10-06-board2.jpg" alt="Notes from our Díaz and Townsend debate, Tuesday 10/6" loading="lazy" class="zoomable">
+        <figcaption>Tap to enlarge</figcaption>
+      </figure>
+
+      <details class="dd">
+        <summary>Summary Of Class</summary>
+        <div class="body">
+          <ul>
+            <li>Reflection paragraphs! While I came around to look at them, you talked through the end of the Townsend chapter (pgs. 78-84) and the worksheet q's with the people next to you.</li>
+            <li>Then an impromptu "debate": are Díaz and Townsend writing "about" the same "things"?</li>
+            <li>Some of what came up: the Mexica weren't less smart, just less technologically advanced. Townsend talks about Moctezuma's children, and Díaz never mentions them. The Mexica knew they were losing. And a lot of Townsend's story comes from the warriors themselves, told calmly and in detail.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="dd hw">
+        <summary>Homework: <span class="due">see Blackbaud</span></summary>
+        <div class="body">
+          <p>See Blackbaud for tonight's homework!</p>
+        </div>
+      </details>
+
+      <details class="dd">
+        <summary>Board As Text</summary>
+        <div class="body">
+          <p>1) Reflection paragraphs! I'll come around and take a look. Please get that, <u>and</u> your Townsend worksheet, out. While I'm coming around, please do the following (and not much else!): Talk about the end of the Townsend chapter, and specifically, the worksheet q's re. those pages (pgs. 78-84) w/ the people next to you!</p>
+          <p>2) Impromptu "debate"! "Diaz + Townsend are writing 'about' the same 'things'." Agree/disagree?</p>
+          <p><em>Notes from discussion:</em></p>
+          <p>&bull; Mexica are not less smart &ndash; just less technologically advanced</p>
+          <p>&bull; they recognize it quickly &ndash; why wouldn't you though? (83) &ndash; Parsa</p>
+          <p>&bull; in this chapter it talks about his children, but in the Diaz it doesn't mention them</p>
+          <p>&bull; Mexica knew they were losing. &ndash; they focused on metal or communication and tech</p>
+          <p>and very well explained &ndash; very intriguing &ndash; main story &ndash; brave warriors gave us these stories. They exlain in calm &ndash; these descriptions are very detailed</p>
+        </div>
+      </details>
+    </article>
+
     <article class="day" id="d2026-10-05">
-      <h3>Monday, 10/5/26 <span class="badge">MOST RECENT CLASS</span></h3>
+      <h3>Monday, 10/5/26</h3>
 
       <figure>
         <img src="images/2026-10-05-board1.jpg" alt="Whiteboard from Monday 10/5 &ndash; new seating chart, museum discussion, and a reflection on your work" loading="lazy" class="zoomable">

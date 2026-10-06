@@ -123,6 +123,16 @@
   #uced .cedterm { margin: 44px 0 0; font-size: 1.05rem; font-weight: 700; text-decoration: underline; color: var(--ink); }
   #uced .cedsoon { margin: 14px 0 0; padding: 40px 22px; border: 1px dashed var(--rule); text-align: center; color: var(--ink); font-style: italic; }
   @media (max-width: 700px) { #uced .cedrow { padding: 26px 16px; flex-wrap: wrap; } }
+
+  /* Option F tabs (2026-10-05): pill buttons + "Click a tab!" label */
+  nav.units .row { padding: 9px 8px; gap: 8px; align-items: center; max-width: 800px; }
+  nav.units .row::before { content: "Click a tab! \2192"; color: var(--gold); font-weight: 700; font-style: italic;
+    font-size: .98rem; padding: 0 6px 0 12px; white-space: nowrap; }
+  nav.units .row > button, nav.units .unitsmenu > .toggle { border: 1.5px solid #c9a227; border-radius: 999px;
+    color: #fff; padding: 5px 16px; background: transparent; }
+  nav.units .row > button:hover, nav.units .unitsmenu > .toggle:hover { background: rgba(201,162,39,.22); }
+  nav.units .row > button.active, nav.units .unitsmenu > .toggle.active { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
+  nav.units .unitsmenu .list { top: calc(100% + 9px); }
 </style>
 </head>
 <body>
