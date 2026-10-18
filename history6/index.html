@@ -221,18 +221,24 @@ header.site { display: none !important; }
 .dcn details.dayfold > summary::before { content: "\25CF"; color: var(--gold); opacity: 1; font-size: .7rem; top: 11px; left: 10px; }
 .dcn details.dayfold[open] > summary::before { content: "\25CF"; top: 15px; left: 13px; }
 .dcn details.dayfold[open] { border-color: var(--navy); }
+
+/* Tabs option A: two tiers */
+nav.units .row::before { content: none; }
+nav.units .row.primary { padding: 12px 8px 6px; gap: 12px; justify-content: center; }
+nav.units .row.primary > button, nav.units .row.primary .unitsmenu > .toggle { font-size: 1.12rem; padding: 8px 24px; border-width: 2px; }
+nav.units .row.secondary { padding: 2px 8px 10px; gap: 22px; justify-content: center; }
+nav.units .row.secondary > button { border: none; background: transparent; color: #c9d3de; font-size: .92rem; padding: 2px 2px; border-radius: 0; border-bottom: 2px solid transparent; }
+nav.units .row.secondary > button:hover { background: transparent; color: #fff; border-bottom-color: rgba(201,162,39,.6); }
+nav.units .row.secondary > button.active { background: transparent; color: var(--gold); border-bottom-color: var(--gold); }
 </style>
 </head>
 <body>
 
 
 <nav class="units">
-  <div class="row">
+  <div class="row primary">
 <!-- UNIT_TABS -->
     <button data-unit="uw" class="active">Welcome</button>
-    <button data-unit="unews">History Class Newsletters</button>
-    <button data-unit="ucrew">Room Crew</button>
-    <button data-unit="uced">CED Groups</button>
     <div class="unitsmenu">
       <button class="toggle" type="button" aria-haspopup="true" aria-expanded="false"><span class="lbl">Daily Class Notes</span><span class="caret">&#9662;</span></button>
       <div class="list">
@@ -242,6 +248,11 @@ header.site { display: none !important; }
       <button data-unit="u04">04 &middot; Ancient Israelites</button>
       </div>
     </div>
+  </div>
+  <div class="row secondary">
+      <button data-unit="unews">History Class Newsletters</button>
+      <button data-unit="ucrew">Room Crew</button>
+      <button data-unit="uced">CED Groups</button>
   </div>
 </nav>
 
