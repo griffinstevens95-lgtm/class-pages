@@ -150,18 +150,95 @@
   .newsgrid .stock figcaption { font-style: italic; }
   @media (max-width: 560px) { .newsgrid { grid-template-columns: repeat(2, 1fr); } }
   .news-older { text-align: center; color: var(--muted); font-style: italic; margin: 6px 0 30px; font-size: .95rem; }
+
+/* Daily Class Notes: months screen -> month screen with week/day drop-downs (preview v5, 2026-10-18) */
+header.site { display: none !important; }
+.dcn .unit-title h2 { margin: 22px 0 14px; color: var(--navy); font-size: 1.5rem; }
+.dcn .crumbs { margin: 0 0 14px; }
+.dcn .crumbs.home { display: none; }
+.dcn .crumbs .back { border: 1.5px solid var(--gold); border-radius: 999px; background: #fff; color: var(--navy); padding: 4px 14px; font: inherit; font-weight: 700; cursor: pointer; }
+.dcn .crumbs .back:hover { background: var(--gold-soft); }
+.dcn .screens > .month { display: none; }
+.dcn .screens > .month.active { display: block; }
+.dcn .list { border-top: 1px solid var(--rule); }
+.dcn .row { display: flex; align-items: baseline; gap: 12px; padding: 14px 14px 14px 6px; border-bottom: 1px solid var(--rule); cursor: pointer; text-decoration: none; color: var(--ink); }
+.dcn .row:hover { background: var(--navy-tint); }
+.dcn .row .main { font-weight: 700; color: var(--navy); font-size: 1.15rem; }
+.dcn .row .sub { color: var(--muted); font-size: .9rem; font-style: italic; }
+.dcn .row .go { margin-left: auto; color: var(--gold); font-weight: 700; font-size: 1.1rem; }
+.dcn .latestbtn { display: inline-block; margin: 0 0 18px; background: var(--gold); color: var(--navy-dark); border-radius: 999px; padding: 7px 18px; font-weight: 700; text-decoration: none; }
+.dcn .latestbtn:hover { background: var(--gold-soft); }
+.dcn .month-name { margin: 0 0 10px; color: var(--navy); font-size: 1.35rem; font-weight: 700; border-bottom: 2px solid var(--gold); padding-bottom: 4px; }
+.dcn .month .week { display: none; }
+.dcn .month.active .week { display: block; }
+.dcn .week .daypills { display: none; }
+.dcn details.wk { border-bottom: 1px solid var(--rule); }
+.dcn details.wk > summary { list-style: none; cursor: pointer; padding: 12px 10px 12px 28px; position: relative; font-weight: 700; color: var(--navy); font-size: 1.1rem; }
+.dcn details.wk > summary::-webkit-details-marker { display: none; }
+.dcn details.wk > summary::before { content: "\25B8"; position: absolute; left: 8px; top: 12px; color: var(--gold); }
+.dcn details.wk[open] > summary::before { content: "\25BE"; }
+.dcn details.wk > summary:hover { background: var(--navy-tint); }
+.dcn details.wk > summary .range { font-weight: 400; color: var(--muted); font-size: .95rem; margin-left: 6px; }
+.dcn details.wk.current > summary .range::after { content: " (this week)"; }
+.dcn details.wk .wkbody { padding: 0 0 8px 28px; }
+.dcn details.dayfold { border: 1px solid transparent; border-radius: 10px; margin: 0 0 2px; }
+.dcn details.dayfold > summary { list-style: none; cursor: pointer; padding: 8px 12px 8px 26px; position: relative; font-weight: 600; color: var(--navy); font-size: 1.02rem; border-radius: 10px; }
+.dcn details.dayfold > summary::-webkit-details-marker { display: none; }
+.dcn details.dayfold > summary::before { content: "\25B8"; position: absolute; left: 9px; top: 8px; color: var(--navy); opacity: .5; font-size: .9rem; }
+.dcn details.dayfold > summary:hover { background: var(--navy-tint); }
+.dcn details.dayfold[open] { background: #fff; border-color: var(--rule); box-shadow: 0 1px 2px rgba(20,35,55,.06); margin: 6px 0 12px; }
+.dcn details.dayfold[open] > summary { padding: 12px 16px 10px 30px; font-size: 1.12rem; font-weight: 700; border-bottom: 1px dashed var(--rule); border-radius: 10px 10px 0 0; }
+.dcn details.dayfold[open] > summary::before { content: "\25BE"; left: 12px; top: 12px; }
+.dcn details.dayfold article.day { display: block; border: none; box-shadow: none; border-radius: 0; margin: 0; padding: 14px 16px 12px; }
+.dcn details.dayfold article.day h3 { display: none; }
+.dcn .week-empty { margin: 6px 0 10px; color: var(--muted); font-style: italic; font-size: .92rem; }
+.crew-now { margin: 0 0 12px; padding: 10px 14px; border-radius: 8px; background: #fbf6e7; box-shadow: inset 3px 0 0 var(--gold); font-size: 1rem; }
+.crew-now strong { color: var(--navy); }
+.crewrow.skipped { background: #f3f3f1 !important; color: #7a838c; font-style: italic; padding: 8px 16px; }
+.crewrow.skipped .cwk, .crewrow.skipped .cwk .range, .crewrow.skipped .cnames { color: #7a838c; font-size: .88rem; }
+.crewrow .moved { color: var(--muted); font-size: .85rem; font-style: italic; font-weight: 400; margin-left: 6px; white-space: nowrap; }
+.crewrow.next .cwk::before { content: "\27A4"; color: #1155cc; margin-right: 7px; }
+.crewrow.next .cwk::after { content: " (up next!)"; font-weight: 700; font-style: italic; font-size: .85rem; color: #1155cc; }
+
+/* v6: distinct looks per screen (2026-10-18) */
+.dcn.inmonth .unit-title { display: none; }
+.dcn .list { border-top: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.dcn .row { display: block; background: #fff; border: 1.5px solid var(--navy); border-radius: 12px; padding: 22px 20px 18px; text-align: center; box-shadow: 0 1px 3px rgba(20,35,55,.08); }
+.dcn .row:hover { background: var(--navy-tint); }
+.dcn .row .main { display: block; font-family: Cinzel, "EB Garamond", serif; font-weight: 600; font-size: 1.25rem; letter-spacing: .02em; color: var(--navy); }
+.dcn .row .main::after { content: ""; display: block; width: 44px; height: 2px; background: var(--gold); margin: 10px auto 0; }
+.dcn .row .go { display: none; }
+.dcn .latestbtn { margin-bottom: 20px; }
+.dcn .month-name { font-family: Cinzel, "EB Garamond", serif; font-weight: 600; font-size: 1.6rem; letter-spacing: .02em; border-bottom: none; margin: 4px 0 16px; }
+.dcn details.wk { border: none; margin: 0 0 10px; }
+.dcn details.wk > summary { background: var(--navy); color: #fff; border-radius: 8px; padding: 10px 14px 10px 34px; font-size: 1.08rem; }
+.dcn details.wk > summary::before { color: var(--gold); left: 14px; top: 10px; }
+.dcn details.wk > summary:hover { background: var(--navy-dark); }
+.dcn details.wk > summary .range { color: #c9d3de; }
+.dcn details.wk.current > summary { box-shadow: inset 0 0 0 2px var(--gold); }
+.dcn details.wk .wkbody { padding: 8px 0 4px 10px; }
+.dcn details.dayfold > summary { font-weight: 700; font-size: 1.08rem; padding-left: 28px; }
+.dcn details.dayfold > summary::before { content: "\25CF"; color: var(--gold); opacity: 1; font-size: .7rem; top: 11px; left: 10px; }
+.dcn details.dayfold[open] > summary::before { content: "\25CF"; top: 15px; left: 13px; }
+.dcn details.dayfold[open] { border-color: var(--navy); }
+
+/* Tabs option A: two tiers (2026-10-18) */
+nav.units .row::before { content: none; }
+nav.units .row.primary { padding: 12px 8px 6px; gap: 12px; justify-content: center; }
+nav.units .row.primary > button, nav.units .row.primary .unitsmenu > .toggle { font-size: 1.12rem; padding: 8px 24px; border-width: 2px; }
+nav.units .row.secondary { padding: 2px 8px 10px; gap: 22px; justify-content: center; }
+nav.units .row.secondary > button { border: none; background: transparent; color: #c9d3de; font-size: .92rem; padding: 2px 2px; border-radius: 0; border-bottom: 2px solid transparent; }
+nav.units .row.secondary > button:hover { background: transparent; color: #fff; border-bottom-color: rgba(201,162,39,.6); }
+nav.units .row.secondary > button.active { background: transparent; color: var(--gold); border-bottom-color: var(--gold); }
 </style>
 </head>
 <body>
 
 
 <nav class="units">
-  <div class="row">
+  <div class="row primary">
 <!-- UNIT_TABS -->
     <button data-unit="uw" class="active">Welcome</button>
-    <button data-unit="unews">History Class Newsletters</button>
-    <button data-unit="ucrew">Room Crew</button>
-    <button data-unit="uced">CED Groups</button>
     <div class="unitsmenu">
       <button class="toggle" type="button" aria-haspopup="true" aria-expanded="false"><span class="lbl">Daily Class Notes</span><span class="caret">&#9662;</span></button>
       <div class="list">
@@ -170,7 +247,11 @@
       <button data-unit="u03">03 &middot; Mongols</button>
       </div>
     </div>
-    <a class="latest" href="#d2026-10-16">Latest class &darr;</a>
+  </div>
+  <div class="row secondary">
+      <button data-unit="unews">History Class Newsletters</button>
+      <button data-unit="ucrew">Room Crew</button>
+      <button data-unit="uced">CED Groups</button>
   </div>
 </nav>
 
@@ -226,48 +307,13 @@
     </article>
   </section>
   <section class="unit" id="u01">
-    <div class="unit-head">
-      <h2>Unit 01: Rome</h2>
-      <div class="weeks">
-        <div class="weekrow current">
-          <span class="wk">Week 9 <span class="range">&middot; 10/12/26 &ndash; 10/16/26</span></span>
-          <span class="days"><span class="noclass">Mon (No Class)</span><a href="#d2026-10-13">Tue 10/13</a><a href="#d2026-10-14">Wed 10/14</a><a href="#d2026-10-15">Thu 10/15</a><a href="#d2026-10-16">Fri 10/16</a></span>
-        </div>
-        <div class="weekrow">
-          <span class="wk">Week 8 <span class="range">&middot; 10/5/26 &ndash; 10/9/26</span></span>
-          <span class="days"><span class="noclass">Mon (No Class)</span><a href="#d2026-10-06">Tue 10/6</a><a href="#d2026-10-07">Wed 10/7</a><a href="#d2026-10-08">Thu 10/8</a><span class="noclass">Fri (No Class: PD Day)</span></span>
-        </div>
-        <div class="weekrow">
-          <span class="wk">Week 7 <span class="range">&middot; 9/28/26 &ndash; 10/2/26</span></span>
-          <span class="days"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-29">Tue 9/29</a><a href="#d2026-09-30">Wed 9/30</a><a href="#d2026-10-01">Thu 10/1</a><a href="#d2026-10-02">Fri 10/2</a></span>
-        </div>
-        <div class="weekrow">
-          <span class="wk">Week 6 <span class="range">&middot; 9/21/26 &ndash; 9/25/26</span></span>
-          <span class="days"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-22">Tue 9/22</a><a href="#d2026-09-23">Wed 9/23</a><a href="#d2026-09-24">Thu 9/24</a><a href="#d2026-09-25">Fri 9/25</a></span>
-        </div>
-        <div class="weekrow">
-          <span class="wk">Week 5 <span class="range">&middot; 9/14/26 &ndash; 9/18/26</span></span>
-          <span class="days"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-15">Tue 9/15</a><a href="#d2026-09-16">Wed 9/16</a><a href="#d2026-09-17">Thu 9/17</a><a href="#d2026-09-18">Fri 9/18</a></span>
-        </div>
-        <div class="weekrow">
-          <span class="wk">Week 4 <span class="range">&middot; 9/7/26 &ndash; 9/11/26</span></span>
-          <span class="days"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-08">Tue 9/8</a><span class="noclass">Wed (Marin Headlands)</span><span class="noclass">Thu (Marin Headlands)</span><span class="noclass">Fri (Marin Headlands)</span></span>
-        </div>
-        <div class="weekrow">
-          <span class="wk">Week 3 <span class="range">&middot; 8/31/26 &ndash; 9/4/26</span></span>
-          <span class="days"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-01">Tue 9/1</a><a href="#d2026-09-02">Wed 9/2</a><a href="#d2026-09-03">Thu 9/3</a><a href="#d2026-09-04">Fri 9/4</a></span>
-        </div>
-        <div class="weekrow">
-          <span class="wk">Week 2 <span class="range">&middot; 8/24/26 &ndash; 8/28/26</span></span>
-          <span class="days"><span class="noclass">Mon (No Class)</span><a href="#d2026-08-25">Tue 8/25</a><a href="#d2026-08-26">Wed 8/26</a><a href="#d2026-08-27">Thu 8/27</a><a href="#d2026-08-28">Fri 8/28</a></span>
-        </div>
-        <div class="weekrow">
-          <span class="wk">Week 1 <span class="range">&middot; 8/19/26 &ndash; 8/21/26</span></span>
-          <span class="days"><a href="#d2026-08-19">Wed 8/19</a><a href="#d2026-08-20">Thu 8/20</a><a href="#d2026-08-21">Fri 8/21</a></span>
-        </div>
-      </div>
-    </div>
-
+    <div class="dcn">
+  <div class="unit-title"><h2>Unit 01: Rome</h2></div>
+  <nav class="crumbs"></nav>
+  <div class="screens">
+  <div class="month" id="m2026-10" data-label="October 2026">
+    <div class="week current" id="w09" data-label="Week 9" data-range="10/12/26 &ndash; 10/16/26">
+      <div class="daypills"><span class="noclass">Mon (No Class)</span><a href="#d2026-10-13">Tue 10/13</a><a href="#d2026-10-14">Wed 10/14</a><a href="#d2026-10-15">Thu 10/15</a><a href="#d2026-10-16">Fri 10/16</a></div>
     <article class="day" id="d2026-10-16">
       <h3>Friday, 10/16/26 <span class="badge">MOST RECENT CLASS</span></h3>
 
@@ -313,7 +359,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-10-15">
       <h3>Thursday, 10/15/26</h3>
 
@@ -354,7 +399,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-10-14">
       <h3>Wednesday, 10/14/26</h3>
 
@@ -394,7 +438,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-10-13">
       <h3>Tuesday, 10/13/26</h3>
 
@@ -439,7 +482,9 @@
         </div>
       </details>
     </article>
-
+    </div>
+    <div class="week" id="w08" data-label="Week 8" data-range="10/5/26 &ndash; 10/9/26">
+      <div class="daypills"><span class="noclass">Mon (No Class)</span><a href="#d2026-10-06">Tue 10/6</a><a href="#d2026-10-07">Wed 10/7</a><a href="#d2026-10-08">Thu 10/8</a><span class="noclass">Fri (No Class: PD Day)</span></div>
     <article class="day" id="d2026-10-08">
       <h3>Thursday, 10/8/26</h3>
 
@@ -481,7 +526,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-10-07">
       <h3>Wednesday, 10/7/26</h3>
 
@@ -537,7 +581,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-10-06">
       <h3>Tuesday, 10/6/26</h3>
 
@@ -577,7 +620,11 @@
         </div>
       </details>
     </article>
-
+    </div>
+  </div>
+  <div class="month" id="m2026-09" data-label="September 2026">
+    <div class="week" id="w07" data-label="Week 7" data-range="9/28/26 &ndash; 10/2/26">
+      <div class="daypills"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-29">Tue 9/29</a><a href="#d2026-09-30">Wed 9/30</a><a href="#d2026-10-01">Thu 10/1</a><a href="#d2026-10-02">Fri 10/2</a></div>
     <article class="day" id="d2026-10-02">
       <h3>Friday, 10/2/26</h3>
 
@@ -615,7 +662,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-10-01">
       <h3>Thursday, 10/1/26</h3>
 
@@ -659,7 +705,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-30">
       <h3>Wednesday, 9/30/26</h3>
 
@@ -696,7 +741,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-29">
       <h3>Tuesday, 9/29/26</h3>
 
@@ -742,7 +786,9 @@
         </div>
       </details>
     </article>
-
+    </div>
+    <div class="week" id="w06" data-label="Week 6" data-range="9/21/26 &ndash; 9/25/26">
+      <div class="daypills"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-22">Tue 9/22</a><a href="#d2026-09-23">Wed 9/23</a><a href="#d2026-09-24">Thu 9/24</a><a href="#d2026-09-25">Fri 9/25</a></div>
     <article class="day" id="d2026-09-25">
       <h3>Friday, 9/25/26</h3>
 
@@ -780,7 +826,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-24">
       <h3>Thursday, 9/24/26</h3>
 
@@ -829,7 +874,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-23">
       <h3>Wednesday, 9/23/26</h3>
 
@@ -887,7 +931,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-22">
       <h3>Tuesday, 9/22/26</h3>
 
@@ -927,7 +970,9 @@
         </div>
       </details>
     </article>
-
+    </div>
+    <div class="week" id="w05" data-label="Week 5" data-range="9/14/26 &ndash; 9/18/26">
+      <div class="daypills"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-15">Tue 9/15</a><a href="#d2026-09-16">Wed 9/16</a><a href="#d2026-09-17">Thu 9/17</a><a href="#d2026-09-18">Fri 9/18</a></div>
     <article class="day" id="d2026-09-18">
       <h3>Friday, 9/18/26</h3>
 
@@ -963,7 +1008,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-17">
       <h3>Thursday, 9/17/26</h3>
 
@@ -999,7 +1043,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-16">
       <h3>Wednesday, 9/16/26</h3>
 
@@ -1052,7 +1095,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-15">
       <h3>Tuesday, 9/15/26</h3>
 
@@ -1106,7 +1148,9 @@
         </div>
       </details>
     </article>
-
+    </div>
+    <div class="week" id="w04" data-label="Week 4" data-range="9/7/26 &ndash; 9/11/26">
+      <div class="daypills"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-08">Tue 9/8</a><span class="noclass">Wed (Marin Headlands)</span><span class="noclass">Thu (Marin Headlands)</span><span class="noclass">Fri (Marin Headlands)</span></div>
     <article class="day" id="d2026-09-08">
       <h3>Tuesday, 9/8/26</h3>
 
@@ -1166,7 +1210,9 @@
         </div>
       </details>
     </article>
-
+    </div>
+    <div class="week" id="w03" data-label="Week 3" data-range="8/31/26 &ndash; 9/4/26">
+      <div class="daypills"><span class="noclass">Mon (No Class)</span><a href="#d2026-09-01">Tue 9/1</a><a href="#d2026-09-02">Wed 9/2</a><a href="#d2026-09-03">Thu 9/3</a><a href="#d2026-09-04">Fri 9/4</a></div>
     <article class="day" id="d2026-09-04">
       <h3>Friday, 9/4/26</h3>
 
@@ -1221,7 +1267,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-03">
       <h3>Thursday, 9/3/26</h3>
 
@@ -1272,7 +1317,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-02">
       <h3>Wednesday, 9/2/26</h3>
 
@@ -1314,7 +1358,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-09-01">
       <h3>Tuesday, 9/1/26</h3>
 
@@ -1355,7 +1398,11 @@
         </div>
       </details>
     </article>
-
+    </div>
+  </div>
+  <div class="month" id="m2026-08" data-label="August 2026">
+    <div class="week" id="w02" data-label="Week 2" data-range="8/24/26 &ndash; 8/28/26">
+      <div class="daypills"><span class="noclass">Mon (No Class)</span><a href="#d2026-08-25">Tue 8/25</a><a href="#d2026-08-26">Wed 8/26</a><a href="#d2026-08-27">Thu 8/27</a><a href="#d2026-08-28">Fri 8/28</a></div>
     <article class="day" id="d2026-08-28">
       <h3>Friday, 8/28/26</h3>
 
@@ -1397,7 +1444,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-08-27">
       <h3>Thursday, 8/27/26</h3>
 
@@ -1435,7 +1481,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-08-26">
       <h3>Wednesday, 8/26/26</h3>
 
@@ -1481,7 +1526,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-08-25">
       <h3>Tuesday, 8/25/26</h3>
 
@@ -1531,7 +1575,9 @@
         </div>
       </details>
     </article>
-
+    </div>
+    <div class="week" id="w01" data-label="Week 1" data-range="8/19/26 &ndash; 8/21/26">
+      <div class="daypills"><a href="#d2026-08-19">Wed 8/19</a><a href="#d2026-08-20">Thu 8/20</a><a href="#d2026-08-21">Fri 8/21</a></div>
     <article class="day" id="d2026-08-21">
       <h3>Friday, 8/21/26</h3>
 
@@ -1583,7 +1629,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-08-20">
       <h3>Thursday, 8/20/26</h3>
 
@@ -1623,7 +1668,6 @@
         </div>
       </details>
     </article>
-
     <article class="day" id="d2026-08-19">
       <h3>Wednesday, 8/19/26</h3>
 
@@ -1662,6 +1706,73 @@
         </div>
       </details>
     </article>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
   </section>
   <section class="unit" id="u02">
     <div class="unit-head">
@@ -1683,50 +1794,39 @@
     <p><span class="crewlead">Overview</span>: Each week, two students from each US class are the Humanities Room Crew! When it&rsquo;s your week, you two run the room checklist. You&rsquo;re also on computer cart duty: any day we use the H-room computers in English or history class, you pass them out and collect them.</p>
     <hr class="crewhr">
     <p><span class="crewlead">The Schedule</span>: The schedule below shows which week is your turn. If you&rsquo;re absent for most / all of that week, you&rsquo;ll pick it up when you&rsquo;re back (Mr. Stevens will keep the sheet updated).</p>
+    <p class="crew-now" id="crewnow"></p>
     <div class="crewtable">
-        <div class="crewrow">
+        <div class="crewrow" data-start="8/31/26">
           <span class="cwk">Week 3 <span class="range">&middot; 8/31/26 &ndash; 9/4/26</span></span>
           <span class="cnames">Juliette &amp; Arjun</span>
         </div>
-        <div class="crewrow">
+        <div class="crewrow" data-start="9/7/26">
           <span class="cwk">Week 4 <span class="range">&middot; 9/7/26 &ndash; 9/11/26</span></span>
           <span class="cnames">Max &amp; Lucas</span>
         </div>
-        <div class="crewrow">
+        <div class="crewrow" data-start="9/14/26">
           <span class="cwk">Week 5 <span class="range">&middot; 9/14/26 &ndash; 9/18/26</span></span>
           <span class="cnames">Lara &amp; Diana</span>
         </div>
-        <div class="crewrow">
-          <span class="cwk">Week 6 <span class="range">&middot; 9/21/26 &ndash; 9/25/26</span></span>
-          <span class="cnames">Skipped &ndash; everything slid down a week</span>
+        <div class="crewrow skipped" data-start="9/21/26" data-end="10/16/26">
+          <span class="cwk">Weeks 6&ndash;9 <span class="range">&middot; 9/21/26 &ndash; 10/16/26</span></span>
+          <span class="cnames">Skipped: no Room Crew these 4 weeks. Everyone below moved down 4 weeks. &darr;</span>
         </div>
-        <div class="crewrow">
-          <span class="cwk">Week 7 <span class="range">&middot; 9/28/26 &ndash; 10/2/26</span></span>
-          <span class="cnames">Skipped &ndash; everything slid down a week</span>
-        </div>
-        <div class="crewrow">
-          <span class="cwk">Week 8 <span class="range">&middot; 10/5/26 &ndash; 10/9/26</span></span>
-          <span class="cnames">Skipped &ndash; everything slid down a week</span>
-        </div>
-        <div class="crewrow current">
-          <span class="cwk">Week 9 <span class="range">&middot; 10/12/26 &ndash; 10/16/26</span></span>
-          <span class="cnames">Skipped &ndash; everything slid down a week</span>
-        </div>
-        <div class="crewrow">
+        <div class="crewrow" data-start="10/19/26">
           <span class="cwk">Week 10 <span class="range">&middot; 10/19/26 &ndash; 10/23/26</span></span>
-          <span class="cnames">Ezra &amp; Eb</span>
+          <span class="cnames">Ezra &amp; Eb <span class="moved">(moved from Week 6)</span></span>
         </div>
-        <div class="crewrow">
+        <div class="crewrow" data-start="10/26/26">
           <span class="cwk">Week 11 <span class="range">&middot; 10/26/26 &ndash; 10/30/26</span></span>
-          <span class="cnames">Audrey &amp; Johnny</span>
+          <span class="cnames">Audrey &amp; Johnny <span class="moved">(moved from Week 7)</span></span>
         </div>
-        <div class="crewrow">
+        <div class="crewrow" data-start="11/2/26">
           <span class="cwk">Week 12 <span class="range">&middot; 11/2/26 &ndash; 11/6/26</span></span>
-          <span class="cnames">Vivian &amp; Rohan</span>
+          <span class="cnames">Vivian &amp; Rohan <span class="moved">(moved from Week 8)</span></span>
         </div>
-        <div class="crewrow">
+        <div class="crewrow" data-start="11/9/26">
           <span class="cwk">Week 13 <span class="range">&middot; 11/9/26 &ndash; 11/13/26</span></span>
-          <span class="cnames">Zoe <span class="tbd">&amp; a partner from the next shuffle</span></span>
+          <span class="cnames">Zoe <span class="tbd">&amp; a partner from the next shuffle</span> <span class="moved">(moved from Week 9)</span></span>
         </div>
       </div>
     <p class="crew-note">Once everyone&rsquo;s had a turn, we shuffle and start a new round. If a week gets skipped (break, field trip, etc.), everything slides down a week.</p>
@@ -1804,45 +1904,87 @@
       units.forEach(u => u.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.unit).classList.add("active");
-      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "unews" || btn.dataset.unit === "ucrew" || btn.dataset.unit === "uced") ? "none" : "";
       syncUnitsToggle();
       window.scrollTo({ top: 0 });
     });
   });
-  function openHash(hash) {
-    const target = document.querySelector(hash);
-    if (!target) return;
-    const unit = target.closest("section.unit");
-    if (unit) {
-      tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === unit.id));
-      units.forEach(u => u.classList.toggle("active", u === unit));
-      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "unews" || unit.id === "ucrew" || unit.id === "uced") ? "none" : "";
-      syncUnitsToggle();
-      target.scrollIntoView();
-    }
-  }
-  if (location.hash) openHash(location.hash);
-  document.querySelectorAll('a[href^="#d"]').forEach(a => {
-    a.addEventListener("click", e => {
-      e.preventDefault();
-      history.replaceState(null, "", a.getAttribute("href"));
-      openHash(a.getAttribute("href"));
-    });
+  // ---- Daily Class Notes: months screen -> month screen (weeks + days as drop-downs) (v5) ----
+  function dayTitle(a) { const c = a.querySelector("h3").cloneNode(true); const badge = c.querySelector(".badge"); if (badge) badge.remove(); return { text: c.textContent.trim(), badge: badge ? badge.outerHTML : "" }; }
+  // one-time: wrap each week in a <details>, each day card in a <details>, so the month screen is plain drop-downs
+  document.querySelectorAll(".dcn .week").forEach(wk => {
+    const d = document.createElement("details"); d.className = "wk" + (wk.classList.contains("current") ? " current" : "");
+    const sm = document.createElement("summary"); sm.innerHTML = wk.dataset.label + '<span class="range">&middot; ' + wk.dataset.range + '</span>'; d.appendChild(sm);
+    const body = document.createElement("div"); body.className = "wkbody";
+    const days = [...wk.querySelectorAll("article.day")];
+    if (!days.length) { const p = document.createElement("p"); p.className = "week-empty"; p.textContent = "No boards posted for this week."; body.appendChild(p); }
+    days.forEach(a => { const f = document.createElement("details"); f.className = "dayfold"; f.id = a.id; a.removeAttribute("id");
+      const t = dayTitle(a); const s2 = document.createElement("summary"); s2.innerHTML = t.text + (t.badge ? " " + t.badge : ""); f.appendChild(s2); f.appendChild(a); body.appendChild(f); });
+    d.appendChild(body); wk.appendChild(d);
   });
+  document.querySelectorAll(".dcn details.dayfold").forEach(d => d.addEventListener("toggle", () => {
+    if (!d.open) return;
+    d.closest(".month").querySelectorAll("details.dayfold[open]").forEach(o => { if (o !== d) o.open = false; });
+  }));
+  function renderDCN(sec, level, ids) {
+    const dcn = sec.querySelector(".dcn"); if (!dcn) return;
+    const screens = dcn.querySelector(".screens"), crumbs = dcn.querySelector(".crumbs");
+    screens.querySelectorAll(".dcn-list, .month-name").forEach(e => e.remove());
+    screens.querySelectorAll(".month.active").forEach(m => m.classList.remove("active"));
+    crumbs.innerHTML = ""; crumbs.classList.toggle("home", level === "months"); dcn.classList.toggle("inmonth", level !== "months");
+    if (level === "months") {
+      const list = document.createElement("div"); list.className = "dcn-list";
+      const all = [...screens.querySelectorAll("details.dayfold")].sort((a, b) => b.id.localeCompare(a.id));
+      if (all.length) { const lb = document.createElement("a"); lb.className = "latestbtn"; lb.href = "#" + all[0].id; lb.textContent = "Most recent class: " + dayTitle(all[0].querySelector("article.day")).text + " →"; lb.addEventListener("click", e => { e.preventDefault(); openHash("#" + all[0].id); }); list.appendChild(lb); }
+      const ul = document.createElement("div"); ul.className = "list";
+      screens.querySelectorAll(":scope > .month").forEach(mo => { const wk = mo.querySelectorAll(".week").length, cl = mo.querySelectorAll("article.day").length;
+        const r = document.createElement("a"); r.className = "row"; r.href = "#";
+        r.innerHTML = '<span class="main">' + mo.dataset.label + '</span><span class="go">›</span>';
+        r.addEventListener("click", e => { e.preventDefault(); renderDCN(sec, "month", { month: mo.id }); }); ul.appendChild(r); });
+      list.appendChild(ul); screens.insertBefore(list, screens.firstChild);
+    } else {
+      const month = document.getElementById(ids.month); month.classList.add("active");
+      const back = document.createElement("button"); back.className = "back"; back.textContent = "← All months"; back.addEventListener("click", () => renderDCN(sec, "months", {})); crumbs.appendChild(back);
+      const nm = document.createElement("p"); nm.className = "month-name"; nm.textContent = month.dataset.label; month.insertBefore(nm, month.firstChild);
+      if (!ids.keep) { month.querySelectorAll("details").forEach(d => d.open = false); const cur = month.querySelector("details.wk.current"); if (cur) cur.open = true; }
+    }
+    window.scrollTo({ top: 0 });
+  }
+  function showUnit(id) {
+    tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === id));
+    units.forEach(u => u.classList.toggle("active", u.id === id));
+    syncUnitsToggle();
+  }
+  function openHash(hash) {
+    const target = document.querySelector(hash); if (!target) return;
+    const sec = target.closest("section.unit"); if (!sec) return;
+    showUnit(sec.id);
+    const mo = target.closest(".month"); if (!mo) return;
+    renderDCN(sec, "month", { month: mo.id, keep: true });
+    for (let p = target; p && p !== mo; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true;
+    target.scrollIntoView({ block: "start" });
+  }
+  document.querySelectorAll("section.unit").forEach(sec => { if (sec.querySelector(".dcn")) renderDCN(sec, "months", {}); });
+  if (location.hash) openHash(location.hash);
   const lb = document.getElementById("lightbox");
   const lbimg = lb.querySelector("img");
   document.querySelectorAll("figure img").forEach(img => {
     img.addEventListener("click", () => { lbimg.src = img.src; lb.classList.add("open"); });
   });
   lb.addEventListener("click", () => lb.classList.remove("open"));
-  document.querySelectorAll(".crewtable .crewrow").forEach(r => {
-    const range = r.querySelector(".range"); if (!range) return;
-    const m = range.textContent.match(/(\d+)\/(\d+)\/(\d+)/); if (!m) return;
-    const start = new Date(2000 + +m[3], +m[1] - 1, +m[2]);
-    const end = new Date(start); end.setDate(end.getDate() + 7);
-    const now = new Date();
-    r.classList.toggle("current", now >= start && now < end);
-  });
+  (function crewToday() {
+    const parse = s => { const m = s.match(/(\d+)\/(\d+)\/(\d+)/); return m ? new Date(2000 + +m[3], +m[1] - 1, +m[2]) : null; };
+    const rows = [...document.querySelectorAll(".crewtable .crewrow")];
+    const now = new Date(); let cur = null;
+    rows.forEach(r => { const start = parse(r.dataset.start || ""); if (!start) return; const end = r.dataset.end ? parse(r.dataset.end) : new Date(start);
+      end.setDate(end.getDate() + (r.dataset.end ? 3 : 7)); r.classList.remove("current", "next"); if (now >= start && now < end) cur = r; });
+    const box = document.getElementById("crewnow"); if (!box) return;
+    const names = r => r.querySelector(".cnames").childNodes[0].textContent.trim();
+    const wk = r => r.querySelector(".cwk").textContent.split("\u00b7")[0].trim();
+    if (!cur) { box.textContent = "Room Crew is between weeks right now."; return; }
+    if (cur.classList.contains("skipped")) { const nxt = rows.slice(rows.indexOf(cur) + 1).find(r => !r.classList.contains("skipped")); if (nxt) nxt.classList.add("next");
+      box.innerHTML = "<strong>This week:</strong> no Room Crew (skipped). " + (nxt ? "<strong>Up next:</strong> " + wk(nxt) + ", " + names(nxt) + "." : ""); }
+    else { cur.classList.add("current"); box.innerHTML = "<strong>This week (" + wk(cur) + "):</strong> " + names(cur) + "."; }
+  })();
 </script>
 
 </body>
