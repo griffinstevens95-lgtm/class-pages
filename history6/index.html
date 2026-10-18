@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <title>Sixth-Grade History (2026-2027): Class Notes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cinzel:wght@600&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #17395c; --navy-dark: #102a45; --navy-tint: #eaf0f6;
@@ -133,6 +133,23 @@
   nav.units .row > button:hover, nav.units .unitsmenu > .toggle:hover { background: rgba(201,162,39,.22); }
   nav.units .row > button.active, nav.units .unitsmenu > .toggle.active { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
   nav.units .unitsmenu .list { top: calc(100% + 9px); }
+  /* Class Newsletters tab (preview 2026-10-18) */
+  .newshead { margin: 36px 0 22px; text-align: center; }
+  .newshead h2 { margin: 0 0 10px; color: var(--navy); font-size: 1.6rem; }
+  .newshead p { max-width: 560px; margin: 0 auto; color: var(--muted); font-size: 1.02rem; }
+  article.news { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 26px 26px 20px; margin-bottom: 26px; box-shadow: 0 1px 2px rgba(20,35,55,.06); }
+  article.news h3 { margin: 0 0 16px; font-family: "Cinzel", "EB Garamond", serif; font-weight: 600; font-size: 1.22rem; letter-spacing: .4px; color: var(--navy); padding-bottom: 8px; border-bottom: 2px solid var(--gold); }
+  article.news .news-date { margin: 0 0 16px; color: var(--muted); font-size: .9rem; font-style: italic; }
+  article.news .lead img { border-radius: 6px; }
+  article.news .lead figcaption { text-align: right; }
+  article.news .news-body { font-size: 1.08rem; line-height: 1.65; margin: 16px 0 18px; }
+  .newsgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .newsgrid figure { margin: 0; }
+  .newsgrid img { aspect-ratio: 4 / 3; object-fit: cover; }
+  .newsgrid figcaption { font-size: .8rem; }
+  .newsgrid .stock figcaption { font-style: italic; }
+  @media (max-width: 560px) { .newsgrid { grid-template-columns: repeat(2, 1fr); } }
+  .news-older { text-align: center; color: var(--muted); font-style: italic; margin: 6px 0 30px; font-size: .95rem; }
 </style>
 </head>
 <body>
@@ -142,6 +159,7 @@
   <div class="row">
 <!-- UNIT_TABS -->
     <button data-unit="uw" class="active">Welcome</button>
+    <button data-unit="unews">History Class Newsletters</button>
     <button data-unit="ucrew">Room Crew</button>
     <button data-unit="uced">CED Groups</button>
     <div class="unitsmenu">
@@ -188,6 +206,22 @@
         <figcaption>The Standard of Ur, Mesopotamia (c. 2500 BCE)</figcaption>
       </figure>
     </div>
+  </section>
+  <section class="unit" id="unews">
+    <div class="newshead">
+      <h2>Class Newsletters</h2>
+      <p>(What we've been up to in sixth-grade history)</p>
+    </div>
+    <article class="news" id="n2026-10">
+      <h3>October 2026 History 6 Class Newsletter</h3>
+      <figure class="lead"><img src="images/newsletters/2026-10-02-debate-prep-podium.jpg" alt="Sixth graders in the History room during debate prep"><figcaption>Debate prep</figcaption></figure>
+      <p class="news-body">Hello sixth graders and sixth-grade families! Here's our first class newsletter of the year. We've gotten off to a great start in history class, beginning with some clarifying discussions on the study of history and the work of historians. Research, discussion, critical thinking, reading primary and secondary sources, and written analysis is much of what professional historians do, and it's a lot of what we've been doing, too! We learned about the evolution of hominids in the context of the "big" history of the earth and the difference between "prehistory" and history, with early-human presentations and a comic strip project built from our <i>Sapiens</i> reading along the way. More recently we've been reading about the Neolithic Revolution, the beginnings of settled, agricultural, urbanized societies, and the sixth graders did a nice job on their first set of reading questions. All of this has led up to our first formal debate, happening right now: was the development of agriculture a good thing for humanity or, as Jared Diamond put it, "The Worst Mistake in the History of the Human Race"? Our first Current Events Day presentation of the year is coming up next week, with many more to come. On to ancient Egypt, in a couple of weeks!</p>
+      <div class="newsgrid">
+        <figure><img src="images/newsletters/2026-09-21-comics-presenting.jpg" alt="A group presents its evolution comic strip"><figcaption>Presenting comic strips</figcaption></figure>
+        <figure><img src="images/newsletters/2026-10-debate-prep-huddle.jpg" alt="A debate team huddles"><figcaption>Debate teams getting on the same page</figcaption></figure>
+        <figure class="stock"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg/1280px-Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg" alt="Millet, The Gleaners"><figcaption>Millet, <i>The Gleaners</i></figcaption></figure>
+      </div>
+    </article>
   </section>
   <section class="unit" id="u01">
     <div class="unit-head">
@@ -1652,7 +1686,7 @@
       units.forEach(u => u.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.unit).classList.add("active");
-      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "ucrew" || btn.dataset.unit === "uced") ? "none" : "";
+      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "unews" || btn.dataset.unit === "ucrew" || btn.dataset.unit === "uced") ? "none" : "";
       syncUnitsToggle();
       window.scrollTo({ top: 0 });
     });
@@ -1664,7 +1698,7 @@
     if (unit) {
       tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === unit.id));
       units.forEach(u => u.classList.toggle("active", u === unit));
-      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "ucrew" || unit.id === "uced") ? "none" : "";
+      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "unews" || unit.id === "ucrew" || unit.id === "uced") ? "none" : "";
       syncUnitsToggle();
       target.scrollIntoView();
     }
