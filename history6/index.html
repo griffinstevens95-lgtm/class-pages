@@ -151,42 +151,47 @@
   @media (max-width: 560px) { .newsgrid { grid-template-columns: repeat(2, 1fr); } }
   .news-older { text-align: center; color: var(--muted); font-style: italic; margin: 6px 0 30px; font-size: .95rem; }
 
-/* Daily Class Notes drill-down screens (preview v4, 2026-10-18) */
+/* Daily Class Notes: months screen -> month screen with week/day drop-downs (preview v5, 2026-10-18) */
 header.site { display: none !important; }
-.dcn .unit-title h2 { margin: 22px 0 10px; color: var(--navy); font-size: 1.5rem; }
-.dcn .crumbs { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 4px; margin: 0 0 16px; min-height: 34px; font-size: .95rem; }
-.dcn .crumbs .back { border: 1.5px solid var(--gold); border-radius: 999px; background: #fff; color: var(--navy); padding: 4px 14px; font: inherit; font-weight: 700; cursor: pointer; margin-right: 8px; }
-.dcn .crumbs .back:hover { background: var(--gold-soft); }
-.dcn .crumbs .back[hidden] { display: none; }
-.dcn .crumbs a { color: var(--navy); text-decoration: none; }
-.dcn .crumbs a:hover { text-decoration: underline; }
-.dcn .crumbs .sep { color: var(--muted); padding: 0 4px; }
-.dcn .crumbs .here { font-weight: 700; color: var(--navy); }
-.dcn .screens > .month, .dcn .screens article.day { display: none; }
-.dcn .screens.showboard > .month.active { display: block; }
-.dcn .screens.showboard > .month.active > .week { display: none; }
-.dcn .screens.showboard > .month.active > .week.active { display: block; }
-.dcn .screens.showboard .week.active > .daypills { display: none; }
-.dcn .screens.showboard article.day.active { display: block; }
+.dcn .unit-title h2 { margin: 22px 0 14px; color: var(--navy); font-size: 1.5rem; }
+.dcn .crumbs { margin: 0 0 14px; }
 .dcn .crumbs.home { display: none; }
+.dcn .crumbs .back { border: 1.5px solid var(--gold); border-radius: 999px; background: #fff; color: var(--navy); padding: 4px 14px; font: inherit; font-weight: 700; cursor: pointer; }
+.dcn .crumbs .back:hover { background: var(--gold-soft); }
+.dcn .screens > .month { display: none; }
+.dcn .screens > .month.active { display: block; }
 .dcn .list { border-top: 1px solid var(--rule); }
-.dcn .row { display: flex; align-items: baseline; gap: 12px; padding: 13px 14px 13px 4px; border-bottom: 1px solid var(--rule); cursor: pointer; text-decoration: none; color: var(--ink); }
+.dcn .row { display: flex; align-items: baseline; gap: 12px; padding: 14px 14px 14px 6px; border-bottom: 1px solid var(--rule); cursor: pointer; text-decoration: none; color: var(--ink); }
 .dcn .row:hover { background: var(--navy-tint); }
-.dcn .row .main { font-weight: 700; color: var(--navy); font-size: 1.1rem; white-space: nowrap; }
+.dcn .row .main { font-weight: 700; color: var(--navy); font-size: 1.15rem; }
 .dcn .row .sub { color: var(--muted); font-size: .9rem; font-style: italic; }
 .dcn .row .go { margin-left: auto; color: var(--gold); font-weight: 700; font-size: 1.1rem; }
-.dcn .row.current .main::after { content: " (this week)"; font-weight: 400; color: var(--muted); font-size: .85rem; }
-.dcn .row.current { background: #fbf6e7; box-shadow: inset 3px 0 0 var(--gold); padding-left: 10px; }
-.dcn .row .daypills { display: flex; flex-wrap: wrap; gap: 6px; }
-.dcn .row .daypills a { text-decoration: none; color: var(--navy); background: var(--navy-tint); border: 1px solid var(--rule); border-radius: 999px; padding: 1px 11px; font-size: .88rem; }
-.dcn .row .daypills a:hover { background: var(--gold-soft); border-color: var(--gold); }
-.dcn .row .daypills .noclass { color: #9aa5b0; border: 1px dashed var(--rule); border-radius: 999px; padding: 1px 11px; font-size: .88rem; font-style: italic; }
-.dcn .row .badge { vertical-align: 2px; }
-.dcn .row.noboards { cursor: default; color: var(--muted); }
 .dcn .latestbtn { display: inline-block; margin: 0 0 18px; background: var(--gold); color: var(--navy-dark); border-radius: 999px; padding: 7px 18px; font-weight: 700; text-decoration: none; }
 .dcn .latestbtn:hover { background: var(--gold-soft); }
-.dcn .screen-hint { margin: 0 0 8px; color: var(--muted); font-size: .92rem; font-style: italic; }
-.dcn article.day.active { margin-top: 4px; }
+.dcn .month-name { margin: 0 0 10px; color: var(--navy); font-size: 1.35rem; font-weight: 700; border-bottom: 2px solid var(--gold); padding-bottom: 4px; }
+.dcn .month .week { display: none; }
+.dcn .month.active .week { display: block; }
+.dcn .week .daypills { display: none; }
+.dcn details.wk { border-bottom: 1px solid var(--rule); }
+.dcn details.wk > summary { list-style: none; cursor: pointer; padding: 12px 10px 12px 28px; position: relative; font-weight: 700; color: var(--navy); font-size: 1.1rem; }
+.dcn details.wk > summary::-webkit-details-marker { display: none; }
+.dcn details.wk > summary::before { content: "\25B8"; position: absolute; left: 8px; top: 12px; color: var(--gold); }
+.dcn details.wk[open] > summary::before { content: "\25BE"; }
+.dcn details.wk > summary:hover { background: var(--navy-tint); }
+.dcn details.wk > summary .range { font-weight: 400; color: var(--muted); font-size: .95rem; margin-left: 6px; }
+.dcn details.wk.current > summary .range::after { content: " (this week)"; }
+.dcn details.wk .wkbody { padding: 0 0 8px 28px; }
+.dcn details.dayfold { border: 1px solid transparent; border-radius: 10px; margin: 0 0 2px; }
+.dcn details.dayfold > summary { list-style: none; cursor: pointer; padding: 8px 12px 8px 26px; position: relative; font-weight: 600; color: var(--navy); font-size: 1.02rem; border-radius: 10px; }
+.dcn details.dayfold > summary::-webkit-details-marker { display: none; }
+.dcn details.dayfold > summary::before { content: "\25B8"; position: absolute; left: 9px; top: 8px; color: var(--navy); opacity: .5; font-size: .9rem; }
+.dcn details.dayfold > summary:hover { background: var(--navy-tint); }
+.dcn details.dayfold[open] { background: #fff; border-color: var(--rule); box-shadow: 0 1px 2px rgba(20,35,55,.06); margin: 6px 0 12px; }
+.dcn details.dayfold[open] > summary { padding: 12px 16px 10px 30px; font-size: 1.12rem; font-weight: 700; border-bottom: 1px dashed var(--rule); border-radius: 10px 10px 0 0; }
+.dcn details.dayfold[open] > summary::before { content: "\25BE"; left: 12px; top: 12px; }
+.dcn details.dayfold article.day { display: block; border: none; box-shadow: none; border-radius: 0; margin: 0; padding: 14px 16px 12px; }
+.dcn details.dayfold article.day h3 { display: none; }
+.dcn .week-empty { margin: 6px 0 10px; color: var(--muted); font-style: italic; font-size: .92rem; }
 .crew-now { margin: 0 0 12px; padding: 10px 14px; border-radius: 8px; background: #fbf6e7; box-shadow: inset 3px 0 0 var(--gold); font-size: 1rem; }
 .crew-now strong { color: var(--navy); }
 .crewrow.skipped { background: #f3f3f1 !important; color: #7a838c; font-style: italic; padding: 8px 16px; }
@@ -1760,61 +1765,45 @@ header.site { display: none !important; }
       window.scrollTo({ top: 0 });
     });
   });
-  // ---- Daily Class Notes drill-down screens (v4) ----
-  const dcnState = {};
-  function unitShort(sec) { const t = sec.querySelector(".unit-title h2"); return t ? t.textContent.replace(/^Unit\s+(\d+):.*$/, "Unit $1") : "Unit"; }
-  function dayTitle(a) { const c = a.querySelector("h3").cloneNode(true); c.querySelectorAll(".badge").forEach(b => b.remove()); return c.textContent.trim(); }
+  // ---- Daily Class Notes: months screen -> month screen (weeks + days as drop-downs) (v5) ----
+  function dayTitle(a) { const c = a.querySelector("h3").cloneNode(true); const badge = c.querySelector(".badge"); if (badge) badge.remove(); return { text: c.textContent.trim(), badge: badge ? badge.outerHTML : "" }; }
+  // one-time: wrap each week in a <details>, each day card in a <details>, so the month screen is plain drop-downs
+  document.querySelectorAll(".dcn .week").forEach(wk => {
+    const d = document.createElement("details"); d.className = "wk" + (wk.classList.contains("current") ? " current" : "");
+    const sm = document.createElement("summary"); sm.innerHTML = wk.dataset.label + '<span class="range">&middot; ' + wk.dataset.range + '</span>'; d.appendChild(sm);
+    const body = document.createElement("div"); body.className = "wkbody";
+    const days = [...wk.querySelectorAll("article.day")];
+    if (!days.length) { const p = document.createElement("p"); p.className = "week-empty"; p.textContent = "No boards posted for this week."; body.appendChild(p); }
+    days.forEach(a => { const f = document.createElement("details"); f.className = "dayfold"; f.id = a.id; a.removeAttribute("id");
+      const t = dayTitle(a); const s2 = document.createElement("summary"); s2.innerHTML = t.text + (t.badge ? " " + t.badge : ""); f.appendChild(s2); f.appendChild(a); body.appendChild(f); });
+    d.appendChild(body); wk.appendChild(d);
+  });
+  document.querySelectorAll(".dcn details.dayfold").forEach(d => d.addEventListener("toggle", () => {
+    if (!d.open) return;
+    d.closest(".month").querySelectorAll("details.dayfold[open]").forEach(o => { if (o !== d) o.open = false; });
+  }));
   function renderDCN(sec, level, ids) {
     const dcn = sec.querySelector(".dcn"); if (!dcn) return;
     const screens = dcn.querySelector(".screens"), crumbs = dcn.querySelector(".crumbs");
-    dcnState[sec.id] = { level, ...ids };
-    screens.querySelectorAll(".dcn-list").forEach(e => e.remove());
-    screens.classList.remove("showboard");
-    screens.querySelectorAll(".active").forEach(a => a.classList.remove("active"));
-    crumbs.classList.toggle("home", level === "months");
-    crumbs.innerHTML = "";
-    const back = document.createElement("button"); back.className = "back"; back.textContent = "← Back"; back.hidden = (level === "months"); crumbs.appendChild(back);
-    const trail = [];
-    const crumb = (txt, fn, here) => { if (trail.length) { const s = document.createElement("span"); s.className = "sep"; s.textContent = "›"; crumbs.appendChild(s); }
-      const el = document.createElement(here ? "span" : "a"); el.textContent = txt; if (here) el.className = "here"; else { el.href = "#"; el.addEventListener("click", e => { e.preventDefault(); fn(); }); } crumbs.appendChild(el); trail.push(el); };
-    const month = ids.month && document.getElementById(ids.month), week = ids.week && document.getElementById(ids.week), day = ids.day && document.getElementById(ids.day);
-    crumb(unitShort(sec), () => renderDCN(sec, "months", {}), level === "months");
-    if (month) crumb(month.dataset.label, () => renderDCN(sec, "weeks", { month: month.id }), level === "weeks");
-    if (week) crumb(week.dataset.label, () => renderDCN(sec, "days", { month: month.id, week: week.id }), level === "days");
-    if (day) crumb(dayTitle(day), null, true);
-    back.addEventListener("click", () => { if (level === "board") renderDCN(sec, "days", { month: month.id, week: week.id }); else if (level === "days") renderDCN(sec, "weeks", { month: month.id }); else renderDCN(sec, "months", {}); });
-    const list = document.createElement("div"); list.className = "dcn-list";
-    const row = (main, sub, fn, extra) => { const r = document.createElement("a"); r.className = "row" + (extra && extra.cls ? " " + extra.cls : ""); r.href = "#";
-      const m = document.createElement("span"); m.className = "main"; m.innerHTML = main; r.appendChild(m);
-      if (sub) { const s = document.createElement("span"); s.className = "sub"; s.innerHTML = sub; r.appendChild(s); }
-      if (extra && extra.node) r.appendChild(extra.node);
-      const g = document.createElement("span"); g.className = "go"; g.textContent = "›"; r.appendChild(g);
-      r.addEventListener("click", e => { e.preventDefault(); fn(); }); return r; };
+    screens.querySelectorAll(".dcn-list, .month-name").forEach(e => e.remove());
+    screens.querySelectorAll(".month.active").forEach(m => m.classList.remove("active"));
+    crumbs.innerHTML = ""; crumbs.classList.toggle("home", level === "months");
     if (level === "months") {
-      const all = [...screens.querySelectorAll("article.day")].sort((a, b) => b.id.localeCompare(a.id));
-      if (all.length) { const lb = document.createElement("a"); lb.className = "latestbtn"; lb.href = "#" + all[0].id; lb.textContent = "Most recent class: " + dayTitle(all[0]) + " →"; lb.addEventListener("click", e => { e.preventDefault(); openHash("#" + all[0].id); }); list.appendChild(lb); }
-      const hint = document.createElement("p"); hint.className = "screen-hint"; hint.textContent = "Click a month to see its weeks."; list.appendChild(hint);
+      const list = document.createElement("div"); list.className = "dcn-list";
+      const all = [...screens.querySelectorAll("details.dayfold")].sort((a, b) => b.id.localeCompare(a.id));
+      if (all.length) { const lb = document.createElement("a"); lb.className = "latestbtn"; lb.href = "#" + all[0].id; lb.textContent = "Most recent class: " + dayTitle(all[0].querySelector("article.day")).text + " →"; lb.addEventListener("click", e => { e.preventDefault(); openHash("#" + all[0].id); }); list.appendChild(lb); }
       const ul = document.createElement("div"); ul.className = "list";
       screens.querySelectorAll(":scope > .month").forEach(mo => { const wk = mo.querySelectorAll(".week").length, cl = mo.querySelectorAll("article.day").length;
-        ul.appendChild(row(mo.dataset.label, wk + " week" + (wk !== 1 ? "s" : "") + " &middot; " + cl + " class" + (cl !== 1 ? "es" : ""), () => renderDCN(sec, "weeks", { month: mo.id }))); });
-      list.appendChild(ul);
-    } else if (level === "weeks") {
-      const hint = document.createElement("p"); hint.className = "screen-hint"; hint.textContent = "Click a week to see its classes, or a day to go straight to that board."; list.appendChild(hint);
-      const ul = document.createElement("div"); ul.className = "list";
-      month.querySelectorAll(":scope > .week").forEach(wk => { const pills = wk.querySelector(".daypills").cloneNode(true);
-        pills.querySelectorAll("a[href^='#d']").forEach(a => a.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); openHash(a.getAttribute("href")); }));
-        ul.appendChild(row(wk.dataset.label, "&middot; " + wk.dataset.range, () => renderDCN(sec, "days", { month: month.id, week: wk.id }), { node: pills, cls: wk.classList.contains("current") ? "current" : "" })); });
-      list.appendChild(ul);
-    } else if (level === "days") {
-      const hint = document.createElement("p"); hint.className = "screen-hint"; hint.textContent = "Click a day to see that board."; list.appendChild(hint);
-      const ul = document.createElement("div"); ul.className = "list"; const days = week.querySelectorAll("article.day");
-      if (!days.length) { const r = document.createElement("div"); r.className = "row noboards"; r.textContent = "No boards posted for this week."; ul.appendChild(r); }
-      days.forEach(a => { const badge = a.querySelector(".badge"); ul.appendChild(row(dayTitle(a) + (badge ? " " + badge.outerHTML : ""), null, () => renderDCN(sec, "board", { month: month.id, week: week.id, day: a.id }))); });
-      list.appendChild(ul);
-    } else if (level === "board") {
-      screens.classList.add("showboard"); month.classList.add("active"); week.classList.add("active"); day.classList.add("active");
+        const r = document.createElement("a"); r.className = "row"; r.href = "#";
+        r.innerHTML = '<span class="main">' + mo.dataset.label + '</span><span class="go">›</span>';
+        r.addEventListener("click", e => { e.preventDefault(); renderDCN(sec, "month", { month: mo.id }); }); ul.appendChild(r); });
+      list.appendChild(ul); screens.insertBefore(list, screens.firstChild);
+    } else {
+      const month = document.getElementById(ids.month); month.classList.add("active");
+      const back = document.createElement("button"); back.className = "back"; back.textContent = "← All months"; back.addEventListener("click", () => renderDCN(sec, "months", {})); crumbs.appendChild(back);
+      const nm = document.createElement("p"); nm.className = "month-name"; nm.textContent = month.dataset.label; month.insertBefore(nm, month.firstChild);
+      if (!ids.keep) { month.querySelectorAll("details").forEach(d => d.open = false); const cur = month.querySelector("details.wk.current"); if (cur) cur.open = true; }
     }
-    screens.insertBefore(list, screens.firstChild);
     window.scrollTo({ top: 0 });
   }
   function showUnit(id) {
@@ -1826,7 +1815,10 @@ header.site { display: none !important; }
     const target = document.querySelector(hash); if (!target) return;
     const sec = target.closest("section.unit"); if (!sec) return;
     showUnit(sec.id);
-    if (target.matches("article.day")) { const wk = target.closest(".week"), mo = target.closest(".month"); renderDCN(sec, "board", { month: mo.id, week: wk.id, day: target.id }); }
+    const mo = target.closest(".month"); if (!mo) return;
+    renderDCN(sec, "month", { month: mo.id, keep: true });
+    for (let p = target; p && p !== mo; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true;
+    target.scrollIntoView({ block: "start" });
   }
   document.querySelectorAll("section.unit").forEach(sec => { if (sec.querySelector(".dcn")) renderDCN(sec, "months", {}); });
   if (location.hash) openHash(location.hash);
