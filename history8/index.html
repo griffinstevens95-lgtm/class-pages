@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <title>Eighth-Grade History (2026-2027): Class Notes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cinzel:wght@600&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #17395c; --navy-dark: #102a45; --navy-tint: #eaf0f6;
@@ -133,6 +133,23 @@
   nav.units .row > button:hover, nav.units .unitsmenu > .toggle:hover { background: rgba(201,162,39,.22); }
   nav.units .row > button.active, nav.units .unitsmenu > .toggle.active { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
   nav.units .unitsmenu .list { top: calc(100% + 9px); }
+  /* Class Newsletters tab (preview 2026-10-18) */
+  .newshead { margin: 36px 0 22px; text-align: center; }
+  .newshead h2 { margin: 0 0 10px; color: var(--navy); font-size: 1.6rem; }
+  .newshead p { max-width: 560px; margin: 0 auto; color: var(--muted); font-size: 1.02rem; }
+  article.news { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 26px 26px 20px; margin-bottom: 26px; box-shadow: 0 1px 2px rgba(20,35,55,.06); }
+  article.news h3 { margin: 0 0 16px; font-family: "Cinzel", "EB Garamond", serif; font-weight: 600; font-size: 1.22rem; letter-spacing: .4px; color: var(--navy); padding-bottom: 8px; border-bottom: 2px solid var(--gold); }
+  article.news .news-date { margin: 0 0 16px; color: var(--muted); font-size: .9rem; font-style: italic; }
+  article.news .lead img { border-radius: 6px; }
+  article.news .lead figcaption { text-align: right; }
+  article.news .news-body { font-size: 1.08rem; line-height: 1.65; margin: 16px 0 18px; }
+  .newsgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .newsgrid figure { margin: 0; }
+  .newsgrid img { aspect-ratio: 4 / 3; object-fit: cover; }
+  .newsgrid figcaption { font-size: .8rem; }
+  .newsgrid .stock figcaption { font-style: italic; }
+  @media (max-width: 560px) { .newsgrid { grid-template-columns: repeat(2, 1fr); } }
+  .news-older { text-align: center; color: var(--muted); font-style: italic; margin: 6px 0 30px; font-size: .95rem; }
 </style>
 </head>
 <body>
@@ -142,6 +159,7 @@
   <div class="row">
 <!-- UNIT_TABS -->
     <button data-unit="uw" class="active">Welcome</button>
+    <button data-unit="unews">History Class Newsletters</button>
     <button data-unit="ucrew">Room Crew</button>
     <button data-unit="uced">CED Groups</button>
     <div class="unitsmenu">
@@ -188,6 +206,22 @@
         <figcaption>Houël, Storming of the Bastille (1789)</figcaption>
       </figure>
     </div>
+  </section>
+  <section class="unit" id="unews">
+    <div class="newshead">
+      <h2>Class Newsletters</h2>
+      <p>(What we've been up to in eighth-grade history)</p>
+    </div>
+    <article class="news" id="n2026-10">
+      <h3>October 2026 History 8 Class Newsletter</h3>
+      <figure class="lead"><img src="images/newsletters/2026-09-28-discussion-prep.jpg" alt="Eighth graders preparing for a whole-group discussion"><figcaption>Getting ready for discussion</figcaption></figure>
+      <p class="news-body">Hello eighth graders, and eighth-grade families! Here's our first class newsletter of the year. We've gotten off to a great start, beginning with a review of our material from last year, Ancient Rome, Islam, and the Mongols, plus a discussion of what "modern" even means, since the Early Modern period is our focus this year! We left off last year at a key moment in world history, the end of the "Middle Ages" with the fall of Constantinople and the need (at least from a European point of view) to find new seaborne trade routes to Asia in order not to travel through Muslim lands. This has led to some great discussions on Portuguese and Spanish exploration and the conquest of the Aztecs from Spanish and Aztec points of view. We've read Columbus's letter, Bartolomé de las Casas, and Bernal Díaz's eyewitness account alongside the historian Camilla Townsend's <i>Fifth Sun</i>, which tells the same story with Aztec voices in it. How does each writer describe the people he meets, and what is he really after in describing them that way? The eighth graders did a great job on their comparison paragraphs! We've also visited the Oakland Museum, covered the Columbian Exchange and mercantilism, and just started our chapter on sugar and the birth of the global market. How did a luxury for the rich become a staple for everyone, and what did it cost? Our first Current Events Day presentation of the year is next week, too. After that, we'll wrap up our Exploration unit and move on to the Protestant Reformation, followed by the Scientific Revolution and the Enlightenment, and the French Revolution in the spring!</p>
+      <div class="newsgrid">
+        <figure class="stock"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Desembarco_de_Col%C3%B3n_de_Di%C3%B3scoro_Puebla.jpg/1280px-Desembarco_de_Col%C3%B3n_de_Di%C3%B3scoro_Puebla.jpg" alt="Puebla, The First Landing of Columbus"><figcaption>Puebla, <i>The Landing of Columbus</i></figcaption></figure>
+        <figure class="stock"><img src="https://upload.wikimedia.org/wikipedia/commons/2/25/The_Conquest_of_Tenochtitlan.jpg" alt="The Conquest of Tenochtitlan, 17th-century painting"><figcaption><i>The Conquest of Tenochtitlan</i> (1600s)</figcaption></figure>
+        <figure class="stock"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Slaves_cutting_the_sugar_cane_-_Ten_Views_in_the_Island_of_Antigua_%281823%29%2C_plate_IV_-_BL.jpg/1280px-Slaves_cutting_the_sugar_cane_-_Ten_Views_in_the_Island_of_Antigua_%281823%29%2C_plate_IV_-_BL.jpg" alt="Clark, Cutting the Sugar Cane, Antigua, 1823"><figcaption>Clark, <i>Cutting the Sugar Cane</i>, Antigua (1823)</figcaption></figure>
+      </div>
+    </article>
   </section>
   <section class="unit" id="u01">
     <div class="unit-head">
@@ -1761,7 +1795,7 @@
       units.forEach(u => u.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.unit).classList.add("active");
-      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "ucrew" || btn.dataset.unit === "uced") ? "none" : "";
+      document.querySelector("header.site").style.display = (btn.dataset.unit === "uw" || btn.dataset.unit === "unews" || btn.dataset.unit === "ucrew" || btn.dataset.unit === "uced") ? "none" : "";
       syncUnitsToggle();
       window.scrollTo({ top: 0 });
     });
@@ -1773,7 +1807,7 @@
     if (unit) {
       tabs.forEach(b => b.classList.toggle("active", b.dataset.unit === unit.id));
       units.forEach(u => u.classList.toggle("active", u === unit));
-      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "ucrew" || unit.id === "uced") ? "none" : "";
+      document.querySelector("header.site").style.display = (unit.id === "uw" || unit.id === "unews" || unit.id === "ucrew" || unit.id === "uced") ? "none" : "";
       syncUnitsToggle();
       target.scrollIntoView();
     }
